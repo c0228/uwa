@@ -1,0 +1,128 @@
+import React, { useState, useEffect } from "react";
+import HtmlToReactParser from 'html-to-react';
+import { Icon, Colors, FormInputValidate, getForm, FORM_SUBMITTED, FORM_RESET } from "e-ui-react";
+import './index.css';
+
+export const Dropdown = ({ label, name, placeholder, searchLabel, menu, layout, value, validation }) => {
+  const formContext = getForm();
+  const formName = formContext?.name;
+  const form = formContext?.form;
+
+  const FormMode =  form?.[formName]?.mode;
+  const FormErrorMessage = form?.[formName]?.[name]?.errorMessage;
+
+  const [menuOptions, setMenuOptions] = useState([]);
+  const [status, setStatus] = useState(false);
+  const initialValue = ( (value === undefined) ?'' : value );
+  const [dropDownValue, setDropdownValue] = useState(initialValue);
+  const [searchValue, setSearchValue] = useState("");
+
+  const Icon = () => <Icon type="FontAwesome" name="fa-search" size="12" color={Colors.light} />
+
+  const SearchData = (filterData) => {
+    console.log("filterData: ",filterData);
+    return menu?.filter((m) =>
+    (m?.options?.filter((o) => o?.label?.toLowerCase().includes(filterData?.toLowerCase())).length > 0 ||
+      m?.header?.toLowerCase().includes(filterData?.toLowerCase()) ||
+      m?.label?.toLowerCase().includes(filterData?.toLowerCase())));
+  };
+
+  const DropdownValidate = async() =>{
+    // validation
+    let result = { value: dropDownValue };
+    if (validation !== undefined) {
+      result = await FormInputValidate(validation, dropDownValue);
+      console.log(result);
+    }
+    // form Data
+    if(formName!==undefined && form?.[formName]!==undefined){
+      formContext?.setForm(formName, { [name]: result });
+    }
+  };
+
+  useEffect(()=>{
+    DropdownValidate();
+  },[dropDownValue]);
+ 
+  useEffect(()=>{
+    if( FormMode === FORM_RESET ){
+      setDropdownValue(initialValue);
+    }
+  }, [form]);
+
+  const buildMenuOptions = (menu, lvl) => {
+    const htmlToReactParser = new HtmlToReactParser.Parser();
+    return (menu?.map((m) => {
+      ++lvl;
+      return (<div key={lvl}>
+        <li>
+          {m?.header && <h5 className="dropdown-header">
+            { htmlToReactParser.parse(m.header.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+          </h5>}
+          {m?.label && <span className="dropdown-item curpoint" onClick={()=>{ 
+            setDropdownValue(m?.label);
+            // value(m?.label);
+            setStatus(false); 
+          }}>
+            { htmlToReactParser.parse(m.label.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+          </span>}
+        </li>
+        {m?.options && buildMenuOptions(m.options, lvl)}
+      </div>)
+    }));
+  };
+  
+  useEffect(()=>{
+    setMenuOptions(buildMenuOptions(menu, 0));
+  },[menu]);
+
+  useEffect(()=>{
+    setMenuOptions(buildMenuOptions(SearchData(searchValue), 0));
+  },[searchValue]);
+
+  const validateOnSubmit = ( (FormMode === FORM_SUBMITTED) || dropDownValue?.length > 0);
+  const isErrorMessageExist = (FormErrorMessage?.length > 0);
+
+  return (<>
+  {label && (<label className={(validateOnSubmit ?
+      ((isErrorMessageExist > 0) ? "form-label form-label-validation-invalid" :
+        "form-label form-label-validation-valid")
+      : "form-label")}><b>{label}:</b></label>)}
+  <div tabIndex={1}
+    onBlur={(e) => {
+      if (!e.currentTarget.contains(e.relatedTarget)) { setStatus(false); }
+    }} >
+    <div className="dropdown">
+      <button type="button" 
+      className={((validateOnSubmit) ?
+        ((isErrorMessageExist) ? "btn btn-outline-secondary form-control dropdown-toggle form-control-validation-invalid" :
+          "btn btn-outline-secondary form-control dropdown-toggle form-control-validation-valid")
+        : "btn btn-outline-secondary form-control dropdown-toggle")}
+      data-bs-toggle="dropdown" 
+        style={{ width:'100%', textAlign:'left' }}
+        onClick={() => setStatus(!status)}>
+          <span style={{ paddingRight:'8px' }}>{(dropDownValue?.length>0)?dropDownValue:placeholder}</span>
+          <Icon type="FontAwesome" name="fa-angle-down pull-right" size="15" color={Colors.dark} />
+        </button>
+      <ul className={(status ? "dropdown-menu show" : "dropdown-menu")+
+        (layout==="top"?" dropup-menu":"")} data-popper-placement="top-start">
+        <div className="input-group mb-0">
+          <input className="form-control" placeholder={searchLabel} onChange={(event) =>{
+            setSearchValue(event.target.value);
+          }} />
+          <button type="button" className={"btn btn-secondary"}><Icon /></button>
+        </div>
+        <li><hr className="dropdown-divider" /></li>
+        <div className="dropdown-scroll scroll">
+          {menuOptions}
+        </div>
+      </ul>
+    </div>
+  </div>
+  {((validateOnSubmit) &&
+        isErrorMessageExist) &&
+        <div align="right" className="form-feedback-validation-invalid">
+          {FormErrorMessage}</div>
+  }
+  </>);
+}

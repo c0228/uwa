@@ -1,0 +1,6 @@
+.dropdown-toggle::after {
+    content:none !important;
+}
+.note-editable {
+    background-color:#fff;
+}

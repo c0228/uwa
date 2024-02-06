@@ -1,0 +1,253 @@
+{
+    "gender": [{ "id": "Male", "label": "Male", "value": "Male" },
+            { "id": "Female", "label": "Female", "value": "Female" }],
+    "martialStatus":[{
+            "options":[{ "label":"UnMarried", "value":"UnMarried" },
+                    { "label":"Divorced", "value":"Divorced" },
+                    { "label":"Widow", "value":"Widow" }] 
+            }],
+    "motherTongue":[{
+        "options":[{ "label":"Assamese", "value":"Assamese" },
+                { "label":"Bangla", "value":"Bangla" },
+                { "label":"Bodo", "value":"Bodo" },
+                { "label":"Dogri", "value":"Dogri" },
+                { "label":"Gujarati", "value":"Gujarati" },
+                { "label":"Hindi", "value":"Hindi" },
+                { "label":"Kashmiri", "value":"Kashmiri" },
+                { "label":"Kannada", "value":"Kannada" },
+                { "label":"Konkani", "value":"Konkani" },
+                { "label":"Maithili", "value":"Maithili" },
+                { "label":"Malayalam", "value":"Malayalam" },
+                { "label":"Manipuri", "value":"Manipuri" },
+                { "label":"Marathi", "value":"Marathi" },
+                { "label":"Nepali", "value":"Nepali" },
+                { "label":"Oriya", "value":"Oriya" },
+                { "label":"Punjabi", "value":"Punjabi" },
+                { "label":"Tamil", "value":"Tamil" },
+                { "label":"Telugu", "value":"Telugu" },
+                { "label":"Santali", "value":"Santali" },
+                { "label":"Sindhi", "value":"Sindhi" },
+                { "label":"Urdu", "value":"Urdu" }
+            ] 
+        }],
+    "occupationStatus":[{
+        "options":[{ "label":"Private Sector", "value":"Private Sector" },
+        { "label":"Government / Public Sector", "value":"Government / Public Sector" },
+        { "label":"Defence / Civil Services", "value":"Defence / Civil Services" },
+        { "label":"Business / Self-Employed", "value":"Business / Self-Employed" }]
+    }],
+    "profession":[{
+        "header" :"Administration", 
+        "options":[{ "label":"Accountant", "value":"Accountant" },
+        { "label":"Manager", "value":"Manager" },
+        { "label":"Supervisor", "value":"Supervisor" },
+        { "label":"Officer", "value":"Officer" },
+        { "label":"Administrative Professional", "value":"Administrative Professional" },
+        { "label":"Executive", "value":"Executive" },
+        { "label":"Clerk", "value":"Clerk" },
+        { "label":"Human Resources Professional", "value":"Human Resources Professional" },
+        { "label":"Secretary / Front Office", "value":"Secretary / Front Office" }]
+    },
+    {
+        "header" :"Agriculture", 
+        "options":[{ "label":"Agriculture & Farming Professional", "value":"Agriculture & Farming Professional" },
+                { "label":"Horticulturist", "value":"Horticulturist" }]
+    },
+    {
+        "header" :"Airlines", 
+        "options":[{ "label":"Pilot", "value":"Pilot" },
+        { "label":"Air Hostess / Flight Attendant", "value":"Air Hostess / Flight Attendant" },
+        { "label":"Airline Professional", "value":"Airline Professional" }]
+    },
+    {
+        "header" :"Design & Architecture", 
+        "options":[{ "label":"Architect", "value":"Architect" },
+        { "label":"Interior Designer", "value":"Interior Designer" }]
+    },
+    {
+        "header" :"Banking & Finance", 
+        "options":[{ "label":"Chartered Accountant", "value":"Chartered Accountant" },
+        { "label":"Company Secretary", "value":"Company Secretary" },
+        { "label":"Accounts / Finance Professional", "value":"Accounts / Finance Professional" },
+        { "label":"Banking Professional", "value":"Banking Professional" },
+        { "label":"Auditor", "value":"Auditor" },
+        { "label":"Financial Accountant", "value":"Financial Accountant" },
+        { "label":"Financial Analyst / Planning", "value":"Financial Analyst / Planning" },
+        { "label":"Investment Professional", "value":"Investment Professional" }]
+    },
+    {
+        "header" :"Beauty & Fashion", 
+        "options":[{ "label":"Fashion Designer", "value":"Fashion Designer" },
+        { "label":"Beautician", "value":"Beautician" },
+        { "label":"Hair Stylist", "value":"Hair Stylist" },
+        { "label":"Jewellery Designer", "value":"Jewellery Designer" },
+        { "label":"Makeup Artist", "value":"Makeup Artist" },
+        { "label":"Designer (Others)", "value":"Designer (Others)" }]
+    },
+    {
+        "header" :"Customer Service", 
+        "options":[{ "label":"BPO / KPO / ITES Professional", "value":"BPO / KPO / ITES Professional" },
+        { "label":"Customer Service Professional", "value":"Customer Service Professional" }]
+    },
+    {
+        "header" :"Civil Services", 
+        "options":[{ "label":"Indian Administrative Service (IAS)", "value":"Indian Administrative Service (IAS)" },
+        { "label":"Indian Police Service (IPS)", "value":"Indian Police Service (IPS)" },
+        { "label":"Indian Revenue Service (IRS)", "value":"Indian Revenue Service (IRS)" },
+        { "label":"Indian Engineering Service (IES)", "value":"Indian Engineering Service (IES)" },
+        { "label":"Indian Forest Service (IFS)", "value":"Indian Forest Service (IFS)" }]
+    },
+    {
+        "header" :"Corporate Professionals", 
+        "options":[{ "label":"Analyst", "value":"Analyst" },
+        { "label":"Consultant", "value":"Consultant" },
+        { "label":"Corporate Communication", "value":"Corporate Communication" },
+        { "label":"Corporate Planning", "value":"Corporate Planning" },
+        { "label":"Marketing Professional", "value":"Marketing Professional" },
+        { "label":"Operations Management", "value":"Operations Management" },
+        { "label":"Sales Professional", "value":"Sales Professional" },
+        { "label":"Senior Manager / Manager", "value":"Senior Manager / Manager" },
+        { "label":"Subject Matter Expert", "value":"Subject Matter Expert" },
+        { "label":"Business Development Professional", "value":"Business Development Professional" },
+        { "label":"Content Writer", "value":"Content Writer" }]
+    },
+    {
+        "header" :"Defence", 
+        "options":[{ "label":"Army", "value":"Army" },
+        { "label":"Navy", "value":"Navy" },
+        { "label":"Defence Services (Others)", "value":"Defence Services (Others)" },
+        { "label":"Air Force", "value":"Air Force" },
+        { "label":"Paramilitary", "value":"Paramilitary" }]
+    },
+    {
+        "header" :"Doctors", 
+        "options":[{ "label":"Dentist", "value":"Dentist" },
+        { "label":"Surgeon", "value":"Surgeon" },
+        { "label":"Veterinary Doctor", "value":"Veterinary Doctor" }]
+    },
+    {
+        "header" :"Education & Training", 
+        "options":[{ "label":"Professor / Lecturer", "value":"Professor / Lecturer" },
+        { "label":"Teaching / Academician", "value":"Teaching / Academician" },
+        { "label":"Education Professional", "value":"Education Professional" },
+        { "label":"Training Professional", "value":"Training Professional" },
+        { "label":"Research Assistant", "value":"Research Assistant" },
+        { "label":"Research Scholar", "value":"Research Scholar" }]
+    },
+    {
+        "header" :"Hardware Engineering", 
+        "options":[{ "label":"Civil Engineer", "value":"Civil Engineer" },
+        { "label":"Electronics / Telecom Engineer", "value":"Electronics / Telecom Engineer" },
+        { "label":"Mechanical / Production Engineer", "value":"Mechanical / Production Engineer" },
+        { "label":"Quality Assurance Engineer - Non IT", "value":"Quality Assurance Engineer - Non IT" },
+        { "label":"Engineer - Non IT", "value":"Engineer - Non IT" },
+        { "label":"Designer", "value":"Designer" },
+        { "label":"Product Manager - Non IT", "value":"Product Manager - Non IT" },
+        { "label":"Project Manager - Non IT", "value":"Project Manager - Non IT" }]
+    },
+    {
+        "header" :"Hotel & Hospitality", 
+        "options":[{ "label":"Hotel / Hospitality Professional", "value":"Hotel / Hospitality Professional" },
+        { "label":"Restaurant / Catering Professional", "value":"Restaurant / Catering Professional" },
+        { "label":"Chef / Cook", "value":"Chef / Cook" }]
+    },
+    {
+        "header" :"IT & Software", 
+        "options":[{ "label":"Software Professional", "value":"Software Professional" },
+        { "label":"Hardware Professional", "value":"Hardware Professional" },
+        { "label":"Product Manager", "value":"Product Manager" },
+        { "label":"Project Manager", "value":"Project Manager" },
+        { "label":"Program Manager", "value":"Program Manager" },
+        { "label":"Animator", "value":"Animator" },
+        { "label":"Cyber / Network Security", "value":"Cyber / Network Security" },
+        { "label":"UI / UX Designer", "value":"UI / UX Designer" },
+        { "label":"Web / Graphic Designer", "value":"Web / Graphic Designer" },
+        { "label":"Software Consultant", "value":"Software Consultant" },
+        { "label":"Data Analyst", "value":"Data Analyst" },
+        { "label":"Data Scientist", "value":"Data Scientist" },
+        { "label":"Network Engineer", "value":"Network Engineer" },
+        { "label":"Quality Assurance Engineer", "value":"Quality Assurance Engineer" }]
+    },
+    {
+        "header" :"Legal Services", 
+        "options":[{ "label":"Lawyer & Legal Professional", "value":"Lawyer & Legal Professional" },
+            { "label":"Legal Assistant", "value":"Legal Assistant" }]
+    },
+    {
+        "header" :"Police / Law Enforcement", 
+        "options":[{ "label":"Law Enforcement Officer", "value":"Law Enforcement Officer" },
+            { "label":"Police", "value":"Police" }]
+    },
+    {
+        "header" :"Medical & Health Care Services", 
+        "options":[{ "label":"Healthcare Professional", "value":"Healthcare Professional" },
+        { "label":"Paramedical Professional", "value":"Paramedical Professional" },
+        { "label":"Nurse", "value":"Nurse" },
+        { "label":"Pharmacist", "value":"Pharmacist" },
+        { "label":"Physiotherapist", "value":"Physiotherapist" },
+        { "label":"Psychologist", "value":"Psychologist" },
+        { "label":"Therapist", "value":"Therapist" },
+        { "label":"Medical Transcriptionist", "value":"Medical Transcriptionist" },
+        { "label":"Dietician / Nutritionist", "value":"Dietician / Nutritionist" },
+        { "label":"Lab Technician", "value":"Lab Technician" },
+        { "label":"Medical Representative", "value":"Medical Representative" }]
+    },
+    {
+        "header" :"Media & Entertainment", 
+        "options":[{ "label":"Journalist", "value":"Journalist" },
+        { "label":"Media Professional", "value":"Media Professional" },
+        { "label":"Entertainment Professional", "value":"Entertainment Professional" },
+        { "label":"Event Management Professional", "value":"Event Management Professional" },
+        { "label":"Advertising / PR Professional", "value":"Advertising / PR Professional" },
+        { "label":"Designer", "value":"Designer" },
+        { "label":"Actor / Model", "value":"Actor / Model" },
+        { "label":"Artist", "value":"Artist" }]
+    },
+    {
+        "header" :"Merchant Navy", 
+        "options":[{ "label":"Mariner / Merchant Navy", "value":"Mariner / Merchant Navy" },
+         { "label":"Sailor", "value":"Sailor" }]
+    },
+    {
+        "header" :"Scientist", 
+        "options":[{ "label":"Scientist / Researcher", "value":"Scientist / Researcher" }]
+    },
+    {
+        "header" :"Senior Management", 
+        "options":[{ "label":"CXO / President, Director, Chairman", "value":"CXO / President, Director, Chairman" },
+            { "label":"VP / AVP / GM / DGM / AGM", "value":"VP / AVP / GM / DGM / AGM" }]
+    },
+    {
+        "header" :"Others", 
+        "options":[{ "label":"Technician", "value":"Technician" },
+        { "label":"Arts & Craftsman", "value":"Arts & Craftsman" },
+        { "label":"Librarian", "value":"Librarian" },
+        { "label":"Business Owner / Entrepreneur", "value":"Business Owner / Entrepreneur" },
+        { "label":"Retired", "value":"Retired" },
+        { "label":"Transportation / Logistics Professional", "value":"Transportation / Logistics Professional" },
+        { "label":"Agent / Broker / Trader", "value":"Agent / Broker / Trader" },
+        { "label":"Contractor", "value":"Contractor" },
+        { "label":"Fitness Professional", "value":"Fitness Professional" },
+        { "label":"Security Professional", "value":"Security Professional" },
+        { "label":"Social Worker / Volunteer / NGO", "value":"Social Worker / Volunteer / NGO" },
+        { "label":"Sportsperson", "value":"Sportsperson" },
+        { "label":"Travel Professional", "value":"Travel Professional" },
+        { "label":"Singer", "value":"Singer" },
+        { "label":"Writer", "value":"Writer" },
+        { "label":"Politician", "value":"Politician" },
+        { "label":"Associate", "value":"Associate" },
+        { "label":"Builder", "value":"Builder" },
+        { "label":"Chemist", "value":"Chemist" },
+        { "label":"CNC Operator", "value":"CNC Operator" },
+        { "label":"Distributor", "value":"Distributor" },
+        { "label":"Driver", "value":"Driver" },
+        { "label":"Freelancer", "value":"Freelancer" },
+        { "label":"Mechanic", "value":"Mechanic" },
+        { "label":"Musician", "value":"Musician" },
+        { "label":"Photo / Videographer", "value":"Photo / Videographer" },
+        { "label":"Surveyor", "value":"Surveyor" },
+        { "label":"Tailor", "value":"Tailor" },
+        { "label":"Others", "value":"Others" }]
+    }
+    ]
+}

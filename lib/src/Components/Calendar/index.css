@@ -1,0 +1,5 @@
+.react-calendar { border:1px solid #ccc;border-radius:5px; }
+abbr[title] { text-decoration: none;cursor:default; }
+.react-calendar__navigation__arrow { font-weight:bold;font-size:20px; }
+.react-calendar__navigation__label { font-size:14px;font-weight:bold; }
+.react-calendar__month-view__weekdays { font-size:12px; }

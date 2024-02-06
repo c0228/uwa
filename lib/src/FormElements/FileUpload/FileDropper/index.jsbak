@@ -1,0 +1,143 @@
+import React, { useEffect, useState }  from "react";
+import { ContainerFluid, Row, Col, Icon, ProgressBar, FormatBytes, getForm  } from 'e-ui-react';
+import axios from 'axios';
+import './index.css';
+
+export const FileDropperAndViewer = ({ id, height, autoSubmit, backend })=>{
+    const formContext = getForm();
+    const formName = formContext?.name;
+    const form = formContext?.form;
+    const [ fileUploaderDetails, setFileUploaderDetails ] = useState([]);
+    const [ formData, setFormData ] = useState();
+    const [ isFileSubmitted, setIsFileSubmitted ] = useState(false);
+    const [ fileNewUploadDetails, setFileNewUploadDetails ] = useState([]); 
+   
+    useEffect(()=>{
+      if(autoSubmit===true && formData!==undefined){ onSubmit(); }
+      formContext?.afterSubmit(()=>onSubmit());
+    },[formData]);
+   
+    const onClickHandler =()=>{
+       document.getElementById(id).click();
+    };
+   
+    const onChangeHandler=(event)=>{
+      console.log('Triggered');
+      const input = document.getElementById(id);
+      let data = new FormData();
+       data.append('TARGET_FILES_COUNT', input.files.length);
+       let fileList = [];
+       let fileUploadBar = [];
+       for(let i=0;i<input.files.length;i++){
+         const file = input.files[i];
+         fileUploadBar.push(0);
+         fileList.push({ name: file.name, size: file.size});
+        data.append('TARGET_FILE_'+i, file);
+       }
+       data.append('TARGET_DIRECTORY', backend?.targetDirectory);
+       setFileUploaderDetails(fileList);
+       setFileNewUploadDetails(fileUploadBar);
+       setFormData(data);
+    };
+   
+    const dropHandler=(event)=>{
+       event.preventDefault();
+       document.getElementById(id).files = event.dataTransfer.files;
+       onChangeHandler(event);
+    };
+     
+    const dragOverHandler=(event)=>{
+       event.preventDefault();
+    };
+   
+    const progressCalculator = (loaded, total)=>{
+      const input = document.getElementById(id);
+     const totalFiles = input.files.length;
+     let fileUploadBar = [...fileNewUploadDetails];
+     fileUploaderDetails.map((file,index)=>{
+      let fileSize = file.size;
+      const fillSize = fileUploadBar[index];
+      const newFillSize = (parseFloat(fillSize)+parseFloat(loaded/totalFiles)).toFixed(2);
+      if(newFillSize<fileSize){
+         fileUploadBar[index] = newFillSize;
+      } else {
+         fileUploadBar[index] = fileSize;
+      }
+      setFileNewUploadDetails(fileUploadBar);
+     });
+    };
+   
+    const onSubmit=async()=>{
+      setIsFileSubmitted(true);
+      const options = {
+         onUploadProgress: (progressEvent)=>{
+            const { loaded, total } = progressEvent;
+            progressCalculator(loaded, total);
+            console.log(`${FormatBytes(loaded)} of ${FormatBytes(total)}`);
+         }
+      };
+      // 
+      axios.post(backend?.apiUrl, formData , options, {
+         headers: {
+            'content-type': 'multipart/form-data'
+         }
+       }).then(response=>{
+         console.log(response.data);
+         setFileNewUploadDetails(fileUploaderDetails.map((file)=>file.size));
+
+         let result = { value: response.data };
+         // form Data
+         if(formName!==undefined && form?.[formName]!==undefined){
+            formContext?.setForm(formName, { [id]: result });
+         };
+      });   
+    };
+   
+   
+    return (<>
+    <input id={id} name={id} type="file" style={{ display:'none' }}  multiple 
+      onChange={(event)=>onChangeHandler(event)} />
+    <div onClick={onClickHandler} onDrop={(event)=>dropHandler(event)} 
+      onDragOver={(event)=>dragOverHandler(event)}>
+    <div className="drag-area" style={{ height: height+'px'}}>
+    <div className="icon">
+        <i className="fa fa-cloud-upload"></i>
+    </div>
+    <span className="header">Drag & Drop</span>
+    <span className="header">or <span className="button">browse</span></span>
+    {/*<span className="support">Supports: JPEG, JPG, PNG</span>*/}
+  </div>
+  </div>
+  {(fileUploaderDetails.length>0) && (
+    <ContainerFluid className="mtop15p" style={{ backgroundColor:'rgb(249 249 249)', padding:'15px' }}>
+       {fileUploaderDetails.map((file, index)=>{
+          let fileName = file.name;
+          let fileSize = file.size;
+          let fileExtension = fileName.substring(fileName.lastIndexOf('.'));
+          let progressSize = fileNewUploadDetails[index];
+          let progressPercent = ((progressSize/fileSize)*100).toFixed(2);
+          return (<Row key={index} className="mbot15p" style={{ border: '3px solid #ccc', padding: '15px', margin: '5px' }}>
+             <Col align="center" xl={1} md={1}>
+                <Icon type="FontAwesome" name={(fileExtension==='.mkv')?"fa-file-video-o":
+                                     (fileExtension==='.mp3')?"fa-file-audio-o":
+                                     "fa-file-text-o"} size="36" />
+             </Col>
+             <Col xl={11} md={11} style={(!isFileSubmitted)?{ display:'flex', alignItems: 'center'}:{}}>
+                <div><b>{fileName}</b></div>
+                {isFileSubmitted && (
+                   (progressPercent<100)?(
+                   <>
+                      <div><ProgressBar type="primary" progress={progressPercent} height="8" /></div>
+                      <div>{FormatBytes(progressSize)} of {FormatBytes(fileSize)}  | {progressPercent}%</div>
+                   </>
+                   ):(
+                      <div align="right" style={{ color:'#777'}}><b>Uploaded File Successfully</b></div>
+                   )
+                )}
+             </Col>
+          </Row>);
+       })}
+    </ContainerFluid>
+  )}
+    </>);
+  };

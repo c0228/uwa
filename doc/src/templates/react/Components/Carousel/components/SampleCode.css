@@ -1,0 +1,4 @@
+.section1Component, .section2Component, .section3Component { padding-left:5%;height:100px;padding-right:5%; }
+.section1 { background-color: orange; }
+.section2 { background-color: tomato; }
+.section3 { background-color: dodgerblue; }

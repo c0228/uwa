@@ -1,0 +1,25 @@
+.splash-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+  
+.splash-content {
+ text-align: center;
+}
+  
+.splash-quotationMark {
+    font-size: 36px;
+     /*position: absolute;
+   left: -40px;
+    top: 20px;*/
+}
+
+.fade-2s {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
+.fade-2s.show {
+    opacity: 1;
+}

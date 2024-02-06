@@ -1,0 +1,11 @@
+.speechViewer { 
+ background-color: #f8f9fa;
+ margin: 5px; 
+ min-height: 85px;
+ border: 1px solid #000;
+ padding: 15px;
+ border-radius: 4px;
+}
+.speechLabel {
+ margin-right: 8px;
+}

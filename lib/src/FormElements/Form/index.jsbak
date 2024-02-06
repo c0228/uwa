@@ -1,0 +1,87 @@
+import React, { useState, useEffect, createContext as createFormContext, useContext as useForm } from "react";
+import { Button } from "e-ui-react";
+
+const FormContext = createFormContext();
+
+// Static Variables
+export const FORM_SUBMITTED = 'SUBMITTED';
+export const FORM_RESET = 'RESET';
+
+export const getForm = ()=> useForm(FormContext);
+
+export const Form = ({ name, btnSubmit, btnReset, children, onSubmit, onReset }) =>{
+
+  const [ form, updateForm ] = useState({[name]:{}});
+
+  useEffect(()=>{
+    setFormMode('INITIAL');
+  },[]);
+  
+  const setForm = async(name, data) => {
+    let d = { [name]: Object.assign(form[name], data) };
+    // updateForm({ ...form, ...d });
+    updateForm(d);
+  };
+
+  let afterSubmitted;
+  const afterSubmit=(submit)=>{
+    afterSubmitted = submit;
+  };
+
+  const setFormMode = (status)=>{
+    setForm(name, { mode : status }); // status = SUBMITTED / RESET 
+  };
+
+  const triggerReset = () =>{
+    setFormMode(FORM_RESET);
+    setTimeout(()=>setFormMode('INITIAL'), 1000);
+  };
+
+  const onSubmission = async()=>{
+    setFormMode(FORM_SUBMITTED);
+    if(onSubmit!==undefined){ // Check Form Validation Status 
+      // Check Form Validation Status
+      const isValid = isErrorMessageEmpty(form[name]);
+      onSubmit(form, isValid, triggerReset);
+    }
+    if(afterSubmitted!==undefined){ afterSubmitted(); }
+  };
+
+
+  const isErrorMessageEmpty = (form) => {
+    let keys = Object.keys(form);
+    let status = true;
+    for (let i = 0; i < keys.length; i++) {
+      let errorMessage = form[keys[i]]?.errorMessage;
+      if (errorMessage?.length> 0) {
+        status = false;
+        break;
+      }
+    }
+    return status;
+  };
+  
+  useEffect(()=>{
+    console.log("Form Values [Received]: ", form[name] );
+  },[form]); 
+
+  return (
+    <FormContext.Provider value={{ name, form, setForm, afterSubmit }}>
+      <form id={name} onSubmit={(event)=>event.preventDefault()}>
+        {children}
+        <div align={btnSubmit?.align} style={{ paddingTop:'15px' }}>
+          <Button type={btnSubmit?.btnType} label={btnSubmit?.label} size={btnSubmit?.size} 
+          onClick={()=>{
+            onSubmission();
+          }}/>
+          <Button type={btnReset?.btnType} label={btnReset?.label} size={btnReset?.size} onClick={()=>{
+            triggerReset();
+            if(onReset!==undefined){
+              onReset();
+            }
+            }}  />
+        </div>
+      </form>
+    </FormContext.Provider>
+  );
+}

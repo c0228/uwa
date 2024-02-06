@@ -1,0 +1,31 @@
+ul.tree {
+ list-style-type: none;
+ margin-left:-25px;
+ /*border-left: 2px dashed #333;
+ margin-left:15px; */
+}
+   
+li.treeContent::before {
+ /* content:"- "; */
+ cursor:pointer;
+ font-size:22px;
+ margin-left:-10px;
+}
+   
+.open {
+ display: block;
+ transition: all 1s ease-out;
+}
+   
+.close {
+ display: none;
+ transition: all 1s ease-out;
+}
+
+
+.treeViewerComponent, .treeViewerComponent-hide {
+    display:none;
+}
+.treeViewerComponent-show {
+    display:block;
+}

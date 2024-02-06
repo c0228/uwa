@@ -1,0 +1,213 @@
+import React, { useState, useEffect } from "react";
+import HtmlToReactParser from 'html-to-react';
+import { Icon, Colors, FormInputValidate, getForm, FORM_SUBMITTED, FORM_RESET } from "e-ui-react";
+import './index.css';
+
+export const Dropdown = ({ label, name, type, placeholder, searchLabel, menu, layout, value, validation }) => {
+  const formContext = getForm();
+  const formName = formContext?.name;
+  const form = formContext?.form;
+
+  const FormMode =  form?.[formName]?.mode;
+  const FormErrorMessage = form?.[formName]?.[name]?.errorMessage;
+
+  const [applyCheckedCss, setApplyCheckedCss] = useState(false);
+  const [menuOptions, setMenuOptions] = useState(menu);
+  const [status, setStatus] = useState(false);
+  const initialValue = ()=>{
+    console.log("type", type);
+    if(type==="multiple"){
+        return ( (value === undefined) ?[] : value );
+    } else {
+        return ( (value === undefined) ?'' : value );
+    }
+  }
+  const [dropDownValue, setDropdownValue] = useState(initialValue());
+  const [searchValue, setSearchValue] = useState("");
+
+  const Icon = () => <Icon type="FontAwesome" name="fa-search" size="12" color={Colors.light} />
+
+  const SearchData = (filterData) => {
+    console.log("filterData: ",filterData);
+    return menu?.filter((m) =>
+    (m?.options?.filter((o) => o?.label?.toLowerCase().includes(filterData?.toLowerCase())).length > 0 ||
+      m?.header?.toLowerCase().includes(filterData?.toLowerCase()) ||
+      m?.label?.toLowerCase().includes(filterData?.toLowerCase())));
+  };
+
+  const DropdownValidate = async() =>{
+    // validation
+    let result = { value: dropDownValue };
+    if (validation !== undefined) {
+      result = await FormInputValidate(validation, dropDownValue.toString());
+      console.log(result);
+    }
+    // form Data
+    if(formName!==undefined && form?.[formName]!==undefined){
+      formContext?.setForm(formName, { [name]: result });
+    }
+  };
+
+  useEffect(()=>{
+    console.log("dropDownValue [onChange]", dropDownValue);
+    DropdownValidate();
+  },[dropDownValue]);
+ 
+  useEffect(()=>{
+    if( FormMode === FORM_RESET ){
+      setDropdownValue(initialValue());
+    }
+  }, [form]);
+
+  const buildMenuOptions = (menu, lvl) => {
+    const htmlToReactParser = new HtmlToReactParser.Parser();
+    return (menu?.map((m) => {
+      ++lvl;
+      
+return (<div key={lvl}>
+    {m?.header && 
+        (<li>
+        <h5 className="dropdown-header">
+        { htmlToReactParser.parse(m.header.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+      </h5>
+    </li>)}
+    {m?.label && (
+        <li className={(type==='multiple' && Array.isArray(dropDownValue) && 
+                 dropDownValue.includes(m.label) || (type!=='multiple' && 
+                 !Array.isArray(dropDownValue) && 
+                 dropDownValue===m?.label))?"dropdown-test":""}>
+        <span className="dropdown-item curpoint" onClick={()=>{ 
+        if(type==="multiple"){
+            console.log("type", type, "dropDownValue", dropDownValue, "label", m?.label);
+            if(Array.isArray(dropDownValue) && dropDownValue.includes(m.label)){
+                setDropdownValue(prevValue => prevValue?.filter(l=>l!==m?.label));
+            } else {
+                setDropdownValue(prevValue => [...prevValue, m?.label]);
+            }
+        } else {
+            setDropdownValue(m?.label);
+            setStatus(false); 
+        }
+        
+        // value(m?.label);
+       // 
+      }}>
+         {(type==='multiple' && Array.isArray(dropDownValue) && 
+            dropDownValue.includes(m.label) || type!=='multiple' && !Array.isArray(dropDownValue) && dropDownValue===m?.label)? (
+            <>
+            { htmlToReactParser.parse(m.label.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+            <Icon type="FontAwesome" name="fa-check pull-right" size="15" color={Colors.success} />
+            </>
+        ):(<>
+            { htmlToReactParser.parse(m.label.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+        </>)}
+      </span>
+    </li>
+      )}
+      {m?.options && buildMenuOptions(m.options, lvl)}
+</div>);
+      /* return (<div key={lvl}>
+        <li className="dropdown-test" style={{ padding:'0px' }}>
+          {m?.header && <h5 className="dropdown-header">
+            { htmlToReactParser.parse(m.header.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+          </h5>}
+          {m?.label && <span className="dropdown-item curpoint" onClick={()=>{ 
+            if(type==="multiple"){
+                console.log("type", type, "dropDownValue", dropDownValue, "label", m?.label);
+                if(Array.isArray(dropDownValue) && dropDownValue.includes(m.label)){
+                    setDropdownValue(prevValue => prevValue?.filter(l=>l!==m?.label));
+                } else {
+                    setDropdownValue(prevValue => [...prevValue, m?.label]);
+                }
+            } else {
+                setDropdownValue(m?.label);
+                setStatus(false); 
+            }
+            
+            // value(m?.label);
+           // 
+          }}>
+             {type==='multiple' && Array.isArray(dropDownValue) && 
+                dropDownValue.includes(m.label) ? (
+                <>
+                <div style={{ color: Colors.success, backgroundColor: '#d9ffed', padding:'5px' }}>
+                { htmlToReactParser.parse(m.label.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+                <Icon type="FontAwesome" name="fa-check pull-right" size="15" color={Colors.success} />
+                </div>
+                </>
+            ):(<>
+                { htmlToReactParser.parse(m.label.replace( new RegExp(searchValue, "gi"), (str)=>{return '<b>'+str+'</b>'} ) ) }
+            </>)}
+          </span>}
+        </li>
+        {m?.options && buildMenuOptions(m.options, lvl)}
+      </div>) */
+    }));
+  };
+
+  useEffect(()=>{
+    setMenuOptions(SearchData(searchValue));
+  },[searchValue]);
+
+  const validateOnSubmit = ( (FormMode === FORM_SUBMITTED) || dropDownValue?.length > 0);
+  const isErrorMessageExist = (FormErrorMessage?.length > 0);
+
+  return (<>
+  {label && (<label className={(validateOnSubmit ?
+      ((isErrorMessageExist > 0) ? "form-label form-label-validation-invalid" :
+        "form-label form-label-validation-valid")
+      : "form-label")}><b>{label}:</b></label>)}
+  <div tabIndex={1}
+    onBlur={(e) => {
+      if (!e.currentTarget.contains(e.relatedTarget)) { setStatus(false); }
+    }} >
+    <div className="dropdown">
+      <button type="button" 
+      className={((validateOnSubmit) ?
+        ((isErrorMessageExist) ? "btn btn-outline-secondary form-control dropdown-toggle form-control-validation-invalid" :
+          "btn btn-outline-secondary form-control dropdown-toggle form-control-validation-valid")
+        : "btn btn-outline-secondary form-control dropdown-toggle")}
+      data-bs-toggle="dropdown" 
+        style={{ width:'100%', textAlign:'left' }}
+        onClick={() => setStatus(!status)}>
+          <span style={{ paddingRight:'8px' }}>
+            {(dropDownValue?.length>0)?(
+            <>
+            {(Array.isArray(dropDownValue))?(dropDownValue?.map((d,i)=>(i>0)?', '+d:d)):dropDownValue}
+            </>
+            ):placeholder}
+          </span>
+          <Icon type="FontAwesome" name="fa-angle-down pull-right" size="15" color={Colors.dark} />
+        </button>
+      <ul className={(status ? "dropdown-menu show" : "dropdown-menu")+
+        (layout==="top"?" dropup-menu":"")} data-popper-placement="top-start">
+        <div className="input-group mb-0">
+          <input className="form-control" placeholder={searchLabel} onChange={(event) =>{
+                setSearchValue(event.target.value);
+          }} />
+          <button type="button" className={"btn btn-secondary"}><Icon /></button>
+        </div>
+        <div className="container-fluid">
+         <div className="row">
+            <div className="col-xl-6" style={{ paddingRight:'0px' }}>
+                <button type="button" className="btn btn-primary"
+                 style={{ width:'100%', borderTopRightRadius:'0px', borderBottomRightRadius:'0px' }}>Select All</button>
+            </div>
+            <div className="col-xl-6" style={{ paddingLeft:'0px' }}>
+                <button type="button" className="btn btn-outline-primary" style={{ width:'100%', borderTopLeftRadius:'0px', borderBottomLeftRadius:'0px' }}>DeSelect All</button>
+            </div>
+         </div>  
+        </div>
+        <div className="dropdown-scroll scroll">
+          {buildMenuOptions(menuOptions, 0)}
+        </div>
+      </ul>
+    </div>
+  </div>
+  {((validateOnSubmit) &&
+        isErrorMessageExist) &&
+        <div align="right" className="form-feedback-validation-invalid">
+          {FormErrorMessage}</div>
+  }
+  </>);
+}

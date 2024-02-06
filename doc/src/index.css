@@ -1,0 +1,14 @@
+/* .pageTitle { margin-top:5px;margin-left:15px; margin-right:15px; } */
+.pageTitle {
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    padding: 4px 6px;
+    color: #000;
+    margin-bottom: 13px;
+    clear:both;
+}
+.pageTitle .title {  float:left;  }
+.pageTitle .rightContent {  float:right;  }
+.pageContent { padding:15px; }
+.outputTitle { padding-bottom:5px }

@@ -1,0 +1,1 @@
+/*! For license information please see summernote-lite.min.js.LICENSE.txt */

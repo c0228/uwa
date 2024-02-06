@@ -1,0 +1,27 @@
+.bs-floating-button-circular {
+    width: 50px; /* Adjust the width and height to control the size */
+    height: 50px;
+    border-radius: 50%; /* Makes it circular */
+    padding: 0;
+    line-height: 50px; /* Vertically center the text */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform transition */
+}
+.bs-floating-button-rectangle {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+.bs-floating-button-circular, .bs-floating-button-rectangle {
+    position: fixed;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index:1;
+}
+.bs-floating-button-circular:hover, .bs-floating-button-rectangle:hover {
+    transform: translateY(-6px); /* Apply a slight upward movement on hover */
+}

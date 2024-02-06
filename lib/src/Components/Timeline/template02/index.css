@@ -1,0 +1,5 @@
+.bs-t2-timeline { width: 100%; }
+.bs-t2-tl-circle { position: absolute;top: 50%;right: 0px;transform: translate(50%, -50%);width: 10px;
+    height: 10px;border-radius: 50%;background-color: dodgerBlue;z-index: 1; }
+.bs-t2-tl-left { width: 50%; padding: 15px;position: relative; }
+.bs-t2-tl-right { width: 50%; padding: 15px;border-left:1px solid dodgerBlue; }

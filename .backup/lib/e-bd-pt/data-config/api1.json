@@ -1,0 +1,49 @@
+{
+  "name": "Test API Endpoint",
+  "request": {
+    "method": "POST",
+    "url": "user/register",
+    "body": {
+      "surName": "",
+	    "name":"",
+      "dob":"",
+      "gender":"",
+      "email":"",
+      "accPwd":"",
+      "mcountrycode":"",
+      "mobile":"",
+      "dp":"",
+      "userTz":"",
+      "accactive":"",
+      "userRole":""
+    }
+  },
+  "expectedResponse": {
+    "status": 200,
+    "body": {
+      "message": "Success",
+      "data": {
+        "result": "expected_value"
+      }
+    }
+  },
+  "databaseMapping": {
+    "inputRequestMapping": {
+      "surName": "user_accounts_info.surName",
+	    "name": "user_accounts_info.name",
+	    "dob":"user_accounts_info.dob",
+      "gender":"user_accounts_info.gender",
+      "email":"user_accounts_info.email",
+      "accPwd":"user_accounts_info.accPwd",
+      "mcountrycode":"user_accounts_info.mcountrycode",
+      "mobile":"user_accounts_info.mobile",
+      "dp":"user_accounts_info.dp",
+      "userTz":"user_accounts_info.userTz",
+      "accactive":"user_accounts_info.accactive",
+      "userRole":"user_accounts_info.userRole"
+    },
+    "outputResponseMapping": {
+      "data.result": "tableName.column4"
+    }
+  }
+}

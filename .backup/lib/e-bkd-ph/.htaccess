@@ -1,0 +1,14 @@
+RewriteEngine On
+
+#RewriteRule app/data/view controllers/module.app.static.php?action=APP_VIEW_STATDATA [QSA]
+#RewriteRule app/data/add controllers/module.app.static.php?action=APP_ADDUPDATE_STATDATA [QSA]
+#RewriteRule app/data/delete controllers/module.app.static.php?action=APP_DELETE_STATDATA [QSA]
+
+#RewriteRule platform/add/new controllers/module.admin.php?action=PLATFORM_ADD_NEW [QSA]
+#RewriteRule platform/view controllers/module.admin.php?action=PLATFORM_VIEW [NC,L]
+#RewriteRule question/add/new controllers/module.admin.php?action=QUESTION_ADD_NEW [QSA]
+#RewriteRule question/view/([^/]+)/([^/]+)/([^/]+)$ controllers/module.admin.php?action=QUESTION_VIEW&platformName=$1&limitStart=$2&limitEnd=$3 [QSA]
+#RewriteRule question/update controllers/module.admin.php?action=QUESTION_UPDATE [QSA]
+#RewriteRule question/autocomplete controllers/module.admin.php?action=QUESTION_AUTOCOMPLETE [QSA]
+
+RewriteRule user/register controllers/module.user.account.php?action=USER_REGISTER [QSA]

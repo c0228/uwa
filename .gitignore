@@ -1,0 +1,20 @@
+# .backup - .gitignore
+.backup/app/app-kv-fe/node_modules
+.backup/app/app-mlh-fe/node_modules
+.backup/lib/e-bd-pt/node_modules
+
+# uwa
+lib/node_modules
+
+doc/node_modules
+doc/uploads
+doc/nexus/vendor
+doc/nexus/logs
+
+stt/node_modules
+stt/nexus/vendor
+stt/nexus/logs
+
+adt/node_modules
+adt/nexus/vendor
+adt/nexus/logs
