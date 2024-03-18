@@ -12,12 +12,8 @@ const CarouselNotes = () => {
       <div className="mtop10p mbot10p"><b>Card Carousel:</b></div>
       <Card padding={15} backgroundColor={Colors.grey}>
         <div className="mbot10p"><b>Sample Code:</b></div>
-        <Highlight content={SampleCodeCSS.toString()} lang="css" />
-        <div align="center" className="mbot10p"><b>SampleCode.css</b></div>
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1T5']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['6T17', '18T28', '29T38']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['39T48']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['50']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['7T32']}  />
         <div align="center"><b>SampleCode.js</b></div>
         <div className="mtop10p mbot10p"><b>Output:</b></div>
         <SampleNote1 />
