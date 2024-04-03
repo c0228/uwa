@@ -14,6 +14,7 @@ body::-webkit-scrollbar-thumb { background-color: #000000; }
 .scroll::-webkit-scrollbar { width:6px;height: 6px;background-color: #F5F5F5; }        
 .scroll::-webkit-scrollbar-thumb { background-color: #000000; }
 
+.bg-secondary-lgt { background-color: #ddd;color:#555; }
 .bg-purple { background-color:#953062; }
 .bg-orange { background-color: #ff5722; }
 .bg-pink { background-color: #e91e63; }
