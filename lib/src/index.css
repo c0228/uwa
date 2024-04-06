@@ -26,6 +26,17 @@ body::-webkit-scrollbar-thumb { background-color: #000000; }
 .text-pink { color: #e91e63; }
 .text-magenta { color: #673ab7; }
 .text-brown { color: #6d5146; }
+.text-grey1 { color:#eee; }
+.text-grey2 { color:#ccc; }
+.text-grey3 { color:#aaa; }
+.text-grey4 { color:#999; }
+.text-grey5 { color:#777; }
+.text-grey6 { color:#555; }
+.text-grey7 { color:#333; }
+
+.text-green3 { color:#7cffc2; }
+
+.borderBottom-green3 { border-bottom: 1px solid #7cffc2; }
 
 h1.bs-header { font-size: 26px !important; }
 h2.bs-header { font-size: 24px !important; }
@@ -116,5 +127,7 @@ h4 { font-size: 20px; }
 h5 { font-size: 16px; }
 h6 { font-size: 14px; }
 
-
 .hgl-primary { background-color: #ebf3fb;border-color: #0d6efd;color: #555; }
+
+.fs12 { font-size:12px !important; }
+.fs24 { font-size:24px !important; }
