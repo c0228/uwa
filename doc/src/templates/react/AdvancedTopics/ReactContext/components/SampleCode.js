@@ -16,8 +16,8 @@ export const SampleNote1 = () =>{
         const appContext = getAppContext();
         return (
           <div>
-            <Button type="primary" label="Update City" size={11} 
-            onClick={() => appContext.setContextData({ city: 'Bangalore' })} />
+            <Button type="primary" size={11} 
+            onClick={() => appContext.setContextData({ city: 'Bangalore' })}><b>Update City</b></Button>
           </div>
         );
     };

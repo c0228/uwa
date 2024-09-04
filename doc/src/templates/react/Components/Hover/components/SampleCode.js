@@ -3,10 +3,10 @@ import { Hover, Button } from 'e-ui-react';
 
 export const SampleNote1 = () =>{
  return (<div align="center">
- <Hover type="tooltip" placement="top" component={<Button type="primary" label="Top" size={11} />} hoverContent="Hover Text" />
- <Hover type="tooltip" placement="left" component={<Button type="primary" label="Left" size={11} />} hoverContent="Hover Text" />
- <Hover type="tooltip" placement="right" component={<Button type="primary" label="Right" size={11} />} hoverContent="Hover Text" />
- <Hover type="tooltip" placement="bottom" component={<Button type="primary" label="Bottom" size={11} />} hoverContent="Hover Text" />
+ <Hover type="tooltip" placement="top" component={<Button type="primary" size={11}>Top</Button>} hoverContent="Hover Text" />
+ <Hover type="tooltip" placement="left" component={<Button type="primary" size={11}>Left</Button>} hoverContent="Hover Text" />
+ <Hover type="tooltip" placement="right" component={<Button type="primary" size={11}>Right</Button>} hoverContent="Hover Text" />
+ <Hover type="tooltip" placement="bottom" component={<Button type="primary" size={11}>Bottom</Button>} hoverContent="Hover Text" />
  </div>);
 };
 

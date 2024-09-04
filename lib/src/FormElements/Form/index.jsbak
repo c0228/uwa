@@ -70,16 +70,16 @@ export const Form = ({ name, btnSubmit, btnReset, children, onSubmit, onReset })
       <form id={name} onSubmit={(event)=>event.preventDefault()}>
         {children}
         <div align={btnSubmit?.align} style={{ paddingTop:'15px' }}>
-          <Button type={btnSubmit?.btnType} label={btnSubmit?.label} size={btnSubmit?.size} 
+          <Button type={btnSubmit?.btnType} size={btnSubmit?.size} 
           onClick={()=>{
             onSubmission();
-          }}/>
-          <Button type={btnReset?.btnType} label={btnReset?.label} size={btnReset?.size} onClick={()=>{
+          }}>{btnSubmit?.label}</Button>
+          <Button type={btnReset?.btnType} size={btnReset?.size} onClick={()=>{
             triggerReset();
             if(onReset!==undefined){
               onReset();
             }
-            }}  />
+            }}>{btnReset?.label}</Button>
         </div>
       </form>
     </FormContext.Provider>

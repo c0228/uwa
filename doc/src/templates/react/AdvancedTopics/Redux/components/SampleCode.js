@@ -12,7 +12,7 @@ export const SampleNote1 = () =>{
       
     return (<>
       <div>Welcome to {fromReduxStore('City')}</div>
-      <Button type="outline-primary" label="Change City" size={11} onClick={()=>updateData()}/>
+      <Button type="outline-primary" size={11} onClick={()=>updateData()}><b>Change City</b></Button>
     </>);
   };
 

@@ -5,7 +5,7 @@ import './index.css';
 const NewsFeed = ()=>{
  return (<div>
     <div align="right">
-        <Button type="primary" label="Post a NewsFeed" size={11} />
+        <Button type="primary" size={11}>Post a NewsFeed</Button>
         <Select
          value="MinLocation"
          placeholder="Select your Location"

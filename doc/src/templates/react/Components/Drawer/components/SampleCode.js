@@ -10,9 +10,7 @@ export const SampleNote1 = () =>{
     backgroundColor:'#777',
     color: '#fff'
   }} 
-  triggerElement={<Button label={<>
-    <Icon type="FontAwesome" name="fa-bars" size="12" color="primary" /> Open Drawer
-  </>} type="primary" />}>
+  triggerElement={<Button type="primary"><Icon type="FontAwesome" name="fa-bars" size="12" color="primary" /> Open Drawer</Button>}>
     <div style={{ color:'#fff' }}>
       Test Content
     </div>
@@ -28,9 +26,9 @@ export const SampleNote2 = () =>{
    backgroundColor:'#000',
    color: '#fff'
   }} 
-  triggerElement={<Button type="outline-primary" label={<>
+  triggerElement={<Button type="outline-primary">
     <Icon type="FontAwesome" name="fa-bars" size="12" color="primary" /> Open Drawer
-  </>} />}>
+    </Button>}>
     <div align="center">
       <a href="#">About</a>
       <a href="#">Services</a>

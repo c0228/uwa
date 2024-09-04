@@ -121,7 +121,7 @@ export const AppThemeBuilder = ()=>{
                 <Header />
                 <ThemeSettings />
                 <div align="right" className="mt-2">
-                <Button type="primary" label="Create a New Theme" size={11} />
+                <Button type="primary" size={11}><b>Create a New Theme</b></Button>
                 </div>
                 
                 {/** */}

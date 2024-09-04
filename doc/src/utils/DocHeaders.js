@@ -17,7 +17,7 @@ export const DocumentHeader = ({ title, componentAttributesTable })=>{
     <SimpleHeader title={title}
     rightContent={<>
     {componentAttributesTable!==undefined && 
-     <Button type="primary" label="Component Attributes" size={11} onClick={()=>setShowModal(true)} />}
+     <Button type="primary" size={11} onClick={()=>setShowModal(true)}><b>Component Attributes</b></Button>}
     </>} />
  </>);
 };

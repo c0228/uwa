@@ -12,7 +12,7 @@ export const SampleNote1 = () =>{
   };
 
   return (<>
-   <Button type="primary" label="Open Simple Model" size={11} onClick={()=>setShowModal(true)} />
+   <Button type="primary" size={11} onClick={()=>setShowModal(true)}>Open Simple Model</Button>
    <Modal title="Modal Header" show={showModel} onClose={setShowModal} content={<HelloWorld />} />
    </>);
 
@@ -32,7 +32,7 @@ export const SampleNote2 = () =>{
    };
 
    return (<>
-    <Button type="primary" label="Open Full-Screen Modal" size={11} onClick={()=>setShowModal(true)} />
+    <Button type="primary" size={11} onClick={()=>setShowModal(true)}>Open Full-Screen Modal</Button>
     <Modal title="Modal Header" show={showModel} onClose={setShowModal} content={<HelloWorld />} fullScreen />
    </>);
 
