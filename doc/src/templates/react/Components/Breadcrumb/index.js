@@ -12,7 +12,7 @@ const BreadcrumbNotes = () => {
       <Card padding={15} backgroundColor={Colors.grey}>
         <div className="mbot10p"><b>Sample Code:</b></div>
         <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0', '1']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['5']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['5T8']}  />
         <div className="mtop10p mbot10p"><b>Output:</b></div>
         <SampleNote1 />
       </Card>
