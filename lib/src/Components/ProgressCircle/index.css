@@ -1,0 +1,30 @@
+
+.progress-circle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+  }
+  
+  .progress-circle svg {
+    transform: rotate(-90deg);
+  }
+  
+  .progress-circle circle {
+    fill: none;
+    stroke-width: 10;
+  }
+  
+  .progress-circle .bg {
+   /* stroke: #ddd; */
+  }
+  
+  .progress-circle .progress {
+   /* stroke: #1e90ff; */
+    stroke-linecap: round;
+  }
+  
+  .progress-text {
+    font-size:14px;
+    position:absolute;
+  }
