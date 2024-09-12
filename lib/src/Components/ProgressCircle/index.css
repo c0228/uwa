@@ -15,12 +15,7 @@
     stroke-width: 10;
   }
   
-  .progress-circle .bg {
-   /* stroke: #ddd; */
-  }
-  
   .progress-circle .progress {
-   /* stroke: #1e90ff; */
     stroke-linecap: round;
   }
   
