@@ -1,0 +1,16 @@
+{
+    "totalCount": 3,
+    "data":[{
+      "Column1":"Row 1 Column 1",
+      "Column2":"Row 1 Column 2",
+      "Column3":"Row 1 Column 3"
+    },{
+        "Column1":"Row 2 Column 1",
+        "Column2":"Row 2 Column 2",
+        "Column3":"Row 2 Column 3"
+    },{
+        "Column1":"Row 3 Column 1",
+        "Column2":"Row 3 Column 2",
+        "Column3":"Row 3 Column 3"
+    }]
+}

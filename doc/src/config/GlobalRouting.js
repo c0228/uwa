@@ -39,6 +39,7 @@ import { PillPage } from '@DocReactComponents/Pill/index.js';
 import { ProgressBarPage } from '@DocReactComponents/ProgressBar/index.js';
 import { TabPage } from '@DocReactComponents/Tab/index.js';
 import { TablePage } from '@DocReactComponents/Table/index.js';
+import { TablePaginationPage } from '@DocReactComponents/TablePagination/index.js';
 import { TreeViewPage } from '@DocReactComponents/TreeView/index.js';
 import { MenuPage } from '@DocReactComponents/Menu/index.js';
 import { TagPage } from '@DocReactComponents/Tag/index.js';
@@ -160,6 +161,7 @@ export const AppRouting = ()=>{
             <Route exact path="Component/ProgressBar" element={<ReactPage activeId="react"><ProgressBarPage /></ReactPage>} />
             <Route exact path="Component/Tab" element={<ReactPage activeId="react" ><TabPage /></ReactPage> } />
             <Route exact path="Component/Table" element={<ReactPage activeId="react"><TablePage /></ReactPage>} />
+            <Route exact path="Component/TablePagination" element={<ReactPage activeId="react"><TablePaginationPage /></ReactPage>} />
             <Route exact path="Component/TreeView" element={<ReactPage activeId="react"><TreeViewPage /></ReactPage>} />
             <Route exact path="Component/Menu" element={<ReactPage activeId="react"><MenuPage /></ReactPage>} />
             <Route exact path="Component/Tag" element={<ReactPage activeId="react"><TagPage /></ReactPage>} />

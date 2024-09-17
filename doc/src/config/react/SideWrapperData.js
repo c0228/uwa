@@ -43,6 +43,7 @@ export const SideWrapperData = [
             { id:"progressBar", url:"Component/ProgressBar", title:"ProgressBar" },
             { id:"tab", url:"Component/Tab", title:"Tab" },
             { id:"table", url:"Component/Table", title:"Table" },
+            { id:"tablePagination", url:"Component/TablePagination", title:"TablePagination" },
             { id:"TreeView", url:"Component/TreeView", title:"TreeView" },
             { id:"tag", url:"Component/Tag", title:"Tag" },
             { id:"timeline", url:"Component/Timeline", title:"Timeline" },
