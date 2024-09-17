@@ -30,7 +30,9 @@ export const SampleNote1 = () =>{
 ];
 
  return (<>
-  <TablePagination mode="scrollable" header={{ backgroundColor:'blue', color:'#fff', columns: columns }} pageSize={5} apiUrl="http://localhost:8080/assets/apis/table.json" />
+  <TablePagination mode="scrollable" header={{ backgroundColor:'blue', color:'#fff', columns: columns }} 
+    pageSize={5} 
+    api={{ url:"http://localhost:8080/assets/apis/table.json", method:"GET" }} />
   </>);
 };
 
@@ -63,7 +65,9 @@ export const SampleNote2 = () =>{
 ];
 
  return (<>
-  <TablePagination header={{ backgroundColor:'blue', color:'#fff', columns: columns }} pageSize={10} apiUrl="http://localhost:8080/assets/apis/table.json" />
+  <TablePagination header={{ backgroundColor:'blue', color:'#fff', columns: columns }} pageSize={10} api={{
+    url:"http://localhost:8080/assets/apis/table.json",
+    method:"GET" }} />
   </>);
 };
 
