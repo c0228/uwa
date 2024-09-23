@@ -131,3 +131,4 @@ h6 { font-size: 14px; }
 
 .fs12 { font-size:12px !important; }
 .fs24 { font-size:24px !important; }
+.form-control:disabled { cursor: no-drop; }
