@@ -13,6 +13,9 @@ export const SampleNote2 = () =>{
   <Form name="testForm">
    <TextBox name="surname" label="Surname" placeholder="Enter your Surname" 
         validation={{
+            onSubmit:{
+                textTransform: 'SENTENCE_CASE' // SENTENCE_CASE / UPPER_CASE / LOWER_CASE
+            },
             required:{
                 value: true,
                 errorMessage:"This is a Mandatory Field"
@@ -21,8 +24,7 @@ export const SampleNote2 = () =>{
                 value: 5,
                 errorMessage:"Message should be greator than 5"
             }
-        }}
-    />
+        }} />
   </Form>
   </>);
 };
