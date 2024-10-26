@@ -1,4 +1,15 @@
-.horizontal-menu-details { font-family:MetropolisBold;padding-bottom:15px;justify-content:center;display:flex;flex-direction:row;
-    font-size:18px; }
+.horizontal-menu-details { font-family:MetropolisBold;padding-bottom:15px;
+    justify-content:center;display:flex;font-size:18px; }
 .horizontal-menu-active { cursor:pointer;padding:15px; }
 .horizontal-menu { cursor:pointer;padding:15px; }
+
+@media (max-width: 768px) {
+ .horizontal-menu-details {
+    flex-direction: column;
+ }
+}
+@media (min-width: 769px) {
+ .horizontal-menu-details {
+    flex-direction: row;
+ }
+}
