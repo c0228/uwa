@@ -5,6 +5,7 @@ const url = UrlParams().baseUrl;
 
 const ChooseTheme = () =>{
  return (<Select 
+    name="theme"
     placeholder="Select Theme"
     value="Light" 
     options={[{ id:'light', label:'Light Theme', value:'Light' },
