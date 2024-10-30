@@ -7,6 +7,7 @@ export const SampleNote1 = () =>{
  return (<>
  <Carousel 
     id="listing" 
+    backgroundColor="red"
     data={[{
           img: { src:'https://preview.colorlib.com/theme/bootstrap/carousel-01/images/slider-1.jpg', alt:'Los Angeles' },
           content:(<div style={{ color:'#fff' }}>

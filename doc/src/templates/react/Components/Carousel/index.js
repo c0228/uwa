@@ -13,7 +13,7 @@ const CarouselNotes = () => {
       <Card padding={15} backgroundColor={Colors.grey}>
         <div className="mbot10p"><b>Sample Code:</b></div>
         <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['7T27']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['7T28']}  />
         <div align="center"><b>SampleCode.js</b></div>
         <div className="mtop10p mbot10p"><b>Output:</b></div>
         <SampleNote1 />
