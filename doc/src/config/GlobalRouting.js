@@ -47,7 +47,9 @@ import { TimelinePage } from '@DocReactComponents/Timeline/index.js';
 import { ToastPage } from '@DocReactComponents/Toast/index.js';
 import { HoverPage } from '@DocReactComponents/Hover/index.js';
 import { IconPage } from '@DocReactComponents/Icon/index.js';
+
 import { SpeechListenerPage } from '@DocReactFeatures/SpeechListener/index.js';
+import { GoogleFontsPage } from '@DocReactFonts/GoogleFonts/index.js';
 
 import { AutocompletePage } from '@DocReactFormElements/Autocomplete/index.js';
 import { SelectPage } from '@DocReactFormElements/Select/index.js';
@@ -171,7 +173,8 @@ export const AppRouting = ()=>{
             <Route exact path="Component/Icon" element={<ReactPage activeId="react"><IconPage /></ReactPage>} />
             
             <Route exact path="Feature/SpeechListener" element={<ReactPage activeId="react"><SpeechListenerPage /></ReactPage>} />
-            
+            <Route exact path="Fonts/GoogleFonts" element={<ReactPage activeId="react"><GoogleFontsPage /></ReactPage>} />
+
             <Route exact path="FormElement/Autocomplete" element={<ReactPage activeId="react"><AutocompletePage /></ReactPage> } />
             <Route exact path="FormElement/SelectDropdown" element={<ReactPage activeId="react"><SelectPage /></ReactPage>} />
             <Route exact path="FormElement/Switch" element={<ReactPage activeId="react"><SwitchPage /></ReactPage>} />

@@ -91,6 +91,12 @@ export const SideWrapperData = [
       { id:"gridSystem", url:"Layout/GridSystem", title:"GridSystem" },
       { id:"order", url:"Layout/Order", title:"Order" }]
     },
+    {
+      id:"fonts",
+      url:"#",
+      title:"Fonts",
+      children:[{ id:"googleFonts", url:"Fonts/GoogleFonts", title:"GoogleFonts" }]
+    },
     { id:"media",
       url:"#", 
       title:"HTML 5 Media",
