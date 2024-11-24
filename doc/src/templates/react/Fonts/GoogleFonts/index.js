@@ -31,7 +31,8 @@ const GoogleFontsNotes = () => {
   };
 
   const Template1Notes = ()=>{
-    return (<Row>
+    return (<><Row><Col md={12}><div align="center" className="mbot15p" style={{ fontSize:'15px' }}><b>Template #01</b></div></Col></Row>
+    <Row>
         <Col md={6}>
             <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['25T36']}  /> 
             <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['38T49']}  />
@@ -41,7 +42,8 @@ const GoogleFontsNotes = () => {
             <div className="mbot15p"><b>Output:</b></div>    
             <Card padding={15} backgroundColor={Colors.light}><Template1 /></Card>
         </Col>
-    </Row>);
+    </Row>
+    </>);
   };
 
   return (<ContainerFluid>
@@ -55,7 +57,7 @@ const GoogleFontsNotes = () => {
             </div>
         </Col>
     </Row>
-    <Order data={[<Template1Notes />]} />
+    <Template1Notes />
   </ContainerFluid>);
 };
 
