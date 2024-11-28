@@ -28,6 +28,10 @@ export const Template1 = () =>{
                   "weight": [FW_NORMAL, FW_BOLD],
                 },
                 {
+                  "font-family": "Source+Sans+Pro:wght@400;700",
+                  "weight": [FW_NORMAL, FW_BOLD]
+                },
+                {
                   "font-family": "Merriweather",
                   "weight": [FW_LIGHT, FW_NORMAL],
                 },
