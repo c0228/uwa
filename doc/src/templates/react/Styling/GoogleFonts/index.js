@@ -15,7 +15,8 @@ const GoogleFontsNotes = () => {
       <Card padding={15} backgroundColor={Colors.grey}>
         <div className="mbot10p"><b>Sample Code:</b></div>
         <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
-        <div className="mbot15p"><b>Make Sure this &lt;GoogleFonts /&gt; Tag exists in the App.js / index.js (at Project Root Level) -</b></div>
+        <div className="mbot15p"><b>Make Sure this &lt;GoogleFonts /&gt; 
+          Tag exists in the App.js / index.js (at Project Root Level) -</b></div>
         <Row>
             <Col md={6}> 
                 <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['5T12']}  />   

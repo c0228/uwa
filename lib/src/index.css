@@ -64,20 +64,32 @@ html { overflow-x:hidden; }
 
 @media(max-width:1200px) { 
  .container-fluid { padding-left:15px;padding-right:15px; }
+ .pTop15p { padding-top:15px; }
+ .pBot15p { padding-bottom:15px; }
  .mtop15p { margin-top:15px; }
  .mbot15p { margin-bottom:15px; }
  .pad15p { padding:15px; }
  .padLeft15p { padding-left:15px; }
  .m15p { margin:15px; }
+ .fs11 { font-size:11px; }
+ .fs12 { font-size:12px; }
+ .fs13 { font-size:13px; }
+ .fs14 { font-size:14px; }
 }
 
 @media(min-width:1201px) { 
  .container-fluid { padding-left:1.5vw;padding-right:1.5vw; }
+ .pTop15p { padding-top:1.5vw; }
+ .pBot15p { padding-bottom:1.5vw; }
  .mtop15p { margin-top:1.5vw; }
  .mbot15p { margin-bottom:1.5vw; }
  .pad15p { padding:1.5vw; }
  .padLeft15p { padding-left:1.5vw; }
  .m15p { margin:1.5vw; }
+ .fs11 { font-size:0.8vw; }
+ .fs12 { font-size:0.9vw; }
+ .fs13 { font-size:1vw; }
+ .fs14 { font-size:1.1vw; }
 }
 
 .align-center-vertical { vertical-align: middle;  }
@@ -143,6 +155,5 @@ h6 { font-size: 14px; }
 
 .hgl-primary { background-color: #ebf3fb;border-color: #0d6efd;color: #555; }
 
-.fs12 { font-size:12px !important; }
 .fs24 { font-size:24px !important; }
 .form-control:disabled { cursor: no-drop; }

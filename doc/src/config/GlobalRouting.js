@@ -49,7 +49,9 @@ import { HoverPage } from '@DocReactComponents/Hover/index.js';
 import { IconPage } from '@DocReactComponents/Icon/index.js';
 
 import { SpeechListenerPage } from '@DocReactFeatures/SpeechListener/index.js';
-import { GoogleFontsPage } from '@DocReactFonts/GoogleFonts/index.js';
+
+import { GoogleFontsPage } from '@DocReactStyling/GoogleFonts/index.js';
+import { ColorPalettePage } from '@DocReactStyling/ColorPalette/index.js';
 
 import { AutocompletePage } from '@DocReactFormElements/Autocomplete/index.js';
 import { SelectPage } from '@DocReactFormElements/Select/index.js';
@@ -70,7 +72,6 @@ import { GlobePage } from '@DocReactMaps/Globe/index.js';
 
 import { HeadingPage } from '@DocReactHeadersAndFooters/Heading/index.js';
 
-import { FontPage } from '@DocReactLayout/Fonts/index.js';
 import { GridSystemPage } from '@DocReactLayout/GridSystem/index.js';
 import { OrderPage } from '@DocReactLayout/Order/index.js';
 import { SideWrapperNavabarPage } from '@DocReactLayout/SideWrapperNavbar/index.js';
@@ -173,7 +174,8 @@ export const AppRouting = ()=>{
             <Route exact path="Component/Icon" element={<ReactPage activeId="react"><IconPage /></ReactPage>} />
             
             <Route exact path="Feature/SpeechListener" element={<ReactPage activeId="react"><SpeechListenerPage /></ReactPage>} />
-            <Route exact path="Fonts/GoogleFonts" element={<ReactPage activeId="react"><GoogleFontsPage /></ReactPage>} />
+            <Route exact path="Styling/GoogleFonts" element={<ReactPage activeId="react"><GoogleFontsPage /></ReactPage>} />
+            <Route exact path="Styling/ColorPalette" element={<ReactPage activeId="react"><ColorPalettePage /></ReactPage>} />
 
             <Route exact path="FormElement/Autocomplete" element={<ReactPage activeId="react"><AutocompletePage /></ReactPage> } />
             <Route exact path="FormElement/SelectDropdown" element={<ReactPage activeId="react"><SelectPage /></ReactPage>} />
@@ -195,7 +197,6 @@ export const AppRouting = ()=>{
             
             <Route exact path="HeadersAndFooters/Headings" element={<ReactPage activeId="react"><HeadingPage /></ReactPage>} />
             
-            <Route exact path="Layout/Fonts" element={<ReactPage activeId="react"><FontPage /></ReactPage>} />
             <Route exact path="Layout/GridSystem" element={<ReactPage activeId="react"><GridSystemPage /></ReactPage>} />
             <Route exact path="Layout/Order" element={<ReactPage activeId="react"><OrderPage /></ReactPage>} />
             <Route exact path="Layout/SideWrapperNavabar" element={<ReactPage activeId="react"><SideWrapperNavabarPage /></ReactPage>} />

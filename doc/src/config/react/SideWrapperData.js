@@ -87,15 +87,16 @@ export const SideWrapperData = [
     { id:"layouts",
       url:"#", 
       title:"Layouts",
-      children:[{ id:"fonts", url:"Layout/Fonts", title:"Fonts" },
-      { id:"gridSystem", url:"Layout/GridSystem", title:"GridSystem" },
+      children:[{ id:"gridSystem", url:"Layout/GridSystem", title:"GridSystem" },
       { id:"order", url:"Layout/Order", title:"Order" }]
     },
     {
-      id:"fonts",
+      id:"styling",
       url:"#",
-      title:"Fonts",
-      children:[{ id:"googleFonts", url:"Fonts/GoogleFonts", title:"GoogleFonts" }]
+      title:"Styling",
+      children:[{ id:"googleFonts", url:"Styling/GoogleFonts", title:"GoogleFonts" },
+        { id:"colorPalette", url:"Styling/ColorPalette", title:"Color Palette" }
+      ]
     },
     { id:"media",
       url:"#", 
