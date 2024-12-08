@@ -28,7 +28,6 @@ const ColorPaletteFrame = () => {
 
     { background: { label: "Mauve", color: "#d6c9c5" }, font: { label: "Dark Indigo Blue", color: "#31356d" } },
 
-
     { background: { label: "Navy", color: "#0c2c47" }, font: { label: "White", color: "#fff" } },
     { background: { label: "Yellow", color: "#da9b2a" }, font: { label: "Light White", color: "#f5ffe7" } },
     { background: { label: "Green", color: "#2e5749" }, font: { label: "Light White", color: "#f5ffe7" } },
