@@ -47,7 +47,6 @@ h5.bs-header, h6.bs-header { margin-bottom: 0px; }
 hr { margin-bottom: 0px; }
 
 html { overflow-x:hidden; }
-.btn { font-size:12px; }
 .pad5p { padding:5px; }
 
 .mtop5p { margin-top:5px; }
@@ -59,6 +58,7 @@ html { overflow-x:hidden; }
 .mbot25p { margin-bottom:25px; }
 
 @media(max-width:1200px) {
+ html { font-size:12px; }
  .btn { border-radius:6px;padding-top:6px;padding-bottom:5px;padding-left:15px;padding-right:15px;  }
  .container-fluid { padding-left:15px;padding-right:15px; }
  .form-label{ font-size:11px; }
@@ -69,6 +69,7 @@ html { overflow-x:hidden; }
  .mtop35p { margin-top:35px; }
  .mbot15p { margin-bottom:15px; }
  .mbot35p { margin-bottom:35px; }
+ .mrgt15p { margin-right:15px; }
  .pad15p { padding:15px; }
  .padLeft15p { padding-left:15px; }
  .m15p { margin:15px; }
@@ -79,6 +80,7 @@ html { overflow-x:hidden; }
 }
 
 @media(min-width:1201px) { 
+ html { font-size:calc((12/1200)*100vw); }
  .btn { border-radius:calc((6/1200)*100vw);padding-top:calc((6/1200)*100vw);padding-bottom:calc((5/1200)*100vw);
         padding-left:calc((15/1200)*100vh);padding-right:calc((15/1200)*100vh);  }
  .container-fluid { padding-left:1.5vw;padding-right:1.5vw; }
@@ -88,6 +90,7 @@ html { overflow-x:hidden; }
  .pBot15p { padding-bottom:1.5vw; }
  .mtop15p { margin-top:1.5vw; }
  .mbot15p { margin-bottom:1.5vw; }
+ .mrgt15p { margin-right:1.5vw; }
  .pad15p { padding:1.5vw; }
  .padLeft15p { padding-left:1.5vw; }
  .m15p { margin:1.5vw; }
