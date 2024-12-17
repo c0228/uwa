@@ -1,2 +1,11 @@
-.accordian-header { cursor: pointer; margin: 5px; z-index:-1; }
-.accordian-title { padding-left:18%; padding-top:1.5%; }
+.accordian-header { cursor: pointer;z-index:-1; }
+
+@media(max-width:1200px) {
+ .accordian-header { margin-top: 5px;margin-bottom: 5px; }
+ .accordian-title { padding-left:8px;padding-top:3px; }
+}
+
+@media(min-width:1201px) {
+ .accordian-header { margin-top: calc((5/1200)*100vw);margin-bottom: calc((5/1200)*100vw); }
+ .accordian-title { padding-left:calc((8/1200)*100vw);padding-top:calc((3/1200)*100vw); }
+}
