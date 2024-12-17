@@ -1,2 +1,18 @@
-.bs-hglCopy-icon { color: #aaa; border: 1px solid #aaa; padding: 5px;border-radius:5px;cursor:pointer; }
-.bs-hglCopy-icon:hover, .bs-hglCopy-icon:active { color: #eee;border: 1px solid #eee; }
+
+
+@media(max-width:1200px) { 
+ pre { border-radius:5px; }
+ .hljs { font-size:12px;padding:15px; }
+ .bs-hglCopy-icon { color: #aaa; border: 1px solid #aaa; padding: 5px;border-radius:5px;cursor:pointer; }
+ .bs-hglCopy-icon:hover, .bs-hglCopy-icon:active { color: #eee;border: 1px solid #eee; }
+ .bs-hglCopy-icon-div {  position:absolute;z-index:1;right:8px;top:12px; }
+}
+
+@media(min-width:1201px) { 
+ pre { border-radius: calc(((5/1200)*100vw)); }
+ .hljs { font-size: calc(((12/1200)*100vw));padding: calc(((15/1200)*100vw)); }
+ .bs-hglCopy-icon { color: #aaa; border: calc(((1/1200)*100vw)) solid #aaa; padding: calc(((5/1200)*100vw));
+        border-radius:calc(((5/1200)*100vw));cursor:pointer; }
+ .bs-hglCopy-icon:hover, .bs-hglCopy-icon:active { color: #eee;border: calc(((1/1200)*100vw)) solid #eee; }
+ .bs-hglCopy-icon-div {  position:absolute;z-index:1;right:calc(((8/1200)*100vw));top:calc(((12/1200)*100vw)); }
+}
