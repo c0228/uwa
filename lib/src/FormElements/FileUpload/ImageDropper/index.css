@@ -1,49 +1,73 @@
+img {
+ width: 100%;
+}
 
-img { width:100%; }
+.drag-area {
+ padding: 10px;
+ border: 3px dashed #e0eafc;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ margin: 10px auto;
+}
+.drag-area .icon {
+ font-size: 50px;
+ color: #1683ff;
+}
+.drag-area .header {
+ font-size: 20px;
+ font-weight: 500;
+ color: #34495e;
+}
+.drag-area .support {
+ font-size: 12px;
+ color: grey;
+ margin: 10px 0px 15px 0px;
+}
+.drag-area .button {
+ font-size: 20px;
+ font-weight: 500;
+ color: #1683ff;
+ cursor: pointer;
+}
 
-.drag-area { padding:10px;border: 3px dashed #e0eafc;display:flex;align-items:center;justify-content:center;
-  flex-direction:column;margin: 10px auto; }
- .drag-area .icon { font-size:50px;color:#1683ff; }
- .drag-area .header { font-size:20px;font-weight:500;color:#34495e; }
- .drag-area .support { font-size:12px;color:grey;margin:10px 0px 15px 0px; }
- .drag-area .button { font-size:20px;font-weight:500;color:#1683ff;cursor:pointer; }
- 
- .img-dropper-row {
-   display: -ms-flexbox; /* IE10 */
-   display: flex;
-   -ms-flex-wrap: wrap; /* IE10 */
-   flex-wrap: wrap;
-   padding: 0 4px;
- }
- 
- /* Create four equal columns that sits next to each other */
+.img-dropper-row {
+ display: -ms-flexbox; /* IE10 */
+ display: flex;
+ -ms-flex-wrap: wrap; /* IE10 */
+ flex-wrap: wrap;
+ padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.img-dropper-column {
+ -ms-flex: 25%; /* IE10 */
+ flex: 25%;
+ max-width: 25%;
+ padding: 0 4px;
+}
+
+.img-dropper-column img {
+ margin-top: 8px;
+ vertical-align: middle;
+ width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
  .img-dropper-column {
-   -ms-flex: 25%; /* IE10 */
-   flex: 25%;
-   max-width: 25%;
-   padding: 0 4px;
+  -ms-flex: 50%;
+  flex: 50%;
+  max-width: 50%;
  }
- 
- .img-dropper-column img {
-   margin-top: 8px;
-   vertical-align: middle;
-   width: 100%;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+ .img-dropper-column {
+  -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
  }
- 
- /* Responsive layout - makes a two column-layout instead of four columns */
- @media screen and (max-width: 800px) {
-   .img-dropper-column {
-     -ms-flex: 50%;
-     flex: 50%;
-     max-width: 50%;
-   }
- }
- 
- /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
- @media screen and (max-width: 600px) {
-   .img-dropper-column {
-     -ms-flex: 100%;
-     flex: 100%;
-     max-width: 100%;
-   }
- }
+}

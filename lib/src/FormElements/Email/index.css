@@ -1,1 +1,3 @@
-input[type='text']:disabled {cursor: no-drop;}
+input[type='text']:disabled {
+ cursor: no-drop;
+}

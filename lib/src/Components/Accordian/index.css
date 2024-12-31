@@ -1,2 +1,10 @@
-.accordian-header-primary { background-color: #ebf3fb;border-color: #0d6efd;color: #3b4151; }
-.accordian-body-primary { background-color: #fff;border-color: #0d6efd;color: #3b4151; }
+.accordian-header-primary {
+ background-color: #ebf3fb;
+ border-color: #0d6efd;
+ color: #3b4151;
+}
+.accordian-body-primary {
+ background-color: #fff;
+ border-color: #0d6efd;
+ color: #3b4151;
+}

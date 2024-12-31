@@ -1,7 +1,30 @@
-
-.drag-area { width:100%;padding:10px;border: 3px dashed #e0eafc;display:flex;align-items:center;justify-content:center;
- flex-direction:column;margin: 10px auto; }
-.drag-area .icon { font-size:50px;color:#1683ff; }
-.drag-area .header { font-size:20px;font-weight:500;color:#34495e; }
-.drag-area .support { font-size:12px;color:grey;margin:10px 0px 15px 0px; }
-.drag-area .button { font-size:20px;font-weight:500;color:#1683ff;cursor:pointer; }
+.drag-area {
+ width: 100%;
+ padding: 10px;
+ border: 3px dashed #e0eafc;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ margin: 10px auto;
+}
+.drag-area .icon {
+ font-size: 50px;
+ color: #1683ff;
+}
+.drag-area .header {
+ font-size: 20px;
+ font-weight: 500;
+ color: #34495e;
+}
+.drag-area .support {
+ font-size: 12px;
+ color: grey;
+ margin: 10px 0px 15px 0px;
+}
+.drag-area .button {
+ font-size: 20px;
+ font-weight: 500;
+ color: #1683ff;
+ cursor: pointer;
+}

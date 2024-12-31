@@ -1,1 +1,4 @@
-.recharts-wrapper, .recharts-surface { width:100% !important; }
+.recharts-wrapper,
+.recharts-surface {
+ width: 100% !important;
+}

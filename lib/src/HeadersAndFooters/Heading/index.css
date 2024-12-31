@@ -1,17 +1,50 @@
-.div-simple-header .title { display:flex;width:80%;align-items:center; }
-.div-simple-header { display:flex;flex-direction:row; }
-.div-simple-header .rightContent { width:20%; }
-
-@media(max-width:1200px) { 
- .div-simple-header { border-bottom:1px solid #ccc;margin-top:8px;padding-left:15px;padding-right:15px;padding-bottom:5px; }
- .div-simple-header .title { font-size:16px; }
- .div-filled-header { font-size:12px;padding:10px;letter-spacing:1px;font-weight:400; }
+.div-simple-header .title {
+ display: flex;
+ width: 80%;
+ align-items: center;
+}
+.div-simple-header {
+ display: flex;
+ flex-direction: row;
+}
+.div-simple-header .rightContent {
+ width: 20%;
 }
 
-@media(min-width:1201px) { 
- .div-simple-header { border-bottom:calc(((1/1200)*100vw)) solid #ccc;margin-top:calc(((8/1200)*100vw));
-    padding-left:calc(((15/1200)*100vw));padding-right:calc(((15/1200)*100vw));padding-bottom:calc(((5/1200)*100vw)); }
- .div-simple-header .title{ font-size:calc(((16/1200)*100vw)); }
- .div-filled-header { font-size:calc(((12/1200)*100vw));padding:calc(((10/1200)*100vw));letter-spacing:calc(((1/1200)*100vw));
-        font-weight:400; }
+@media (max-width: 1200px) {
+ .div-simple-header {
+  border-bottom: 1px solid #ccc;
+  margin-top: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+ }
+ .div-simple-header .title {
+  font-size: 16px;
+ }
+ .div-filled-header {
+  font-size: 12px;
+  padding: 10px;
+  letter-spacing: 1px;
+  font-weight: 400;
+ }
+}
+
+@media (min-width: 1201px) {
+ .div-simple-header {
+  border-bottom: calc(((1 / 1200) * 100vw)) solid #ccc;
+  margin-top: calc(((8 / 1200) * 100vw));
+  padding-left: calc(((15 / 1200) * 100vw));
+  padding-right: calc(((15 / 1200) * 100vw));
+  padding-bottom: calc(((5 / 1200) * 100vw));
+ }
+ .div-simple-header .title {
+  font-size: calc(((16 / 1200) * 100vw));
+ }
+ .div-filled-header {
+  font-size: calc(((12 / 1200) * 100vw));
+  padding: calc(((10 / 1200) * 100vw));
+  letter-spacing: calc(((1 / 1200) * 100vw));
+  font-weight: 400;
+ }
 }

@@ -1,15 +1,26 @@
-.vertical-menu-details { font-family:MetropolisBold;padding-bottom:15px;
-    justify-content:center;display:flex;font-size:18px; }
-.vertical-menu-active { cursor:pointer;padding:15px; }
-.vertical-menu { cursor:pointer;padding:15px; }
+.vertical-menu-details {
+ font-family: MetropolisBold;
+ padding-bottom: 15px;
+ justify-content: center;
+ display: flex;
+ font-size: 18px;
+}
+.vertical-menu-active {
+ cursor: pointer;
+ padding: 15px;
+}
+.vertical-menu {
+ cursor: pointer;
+ padding: 15px;
+}
 
 @media (max-width: 768px) {
  .vertical-menu-details {
-    flex-direction: column;
+  flex-direction: column;
  }
 }
 @media (min-width: 769px) {
  .vertical-menu-details {
-    flex-direction: row;
+  flex-direction: row;
  }
 }
