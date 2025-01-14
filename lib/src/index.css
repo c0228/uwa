@@ -132,6 +132,9 @@ body::-webkit-scrollbar-thumb,
  background-color: #6d5146;
 }
 
+.textAlignCenter { text-align: center; }
+.textAlignRight { text-align: right; }
+
 .text-purple {
  color: #953062;
 }
