@@ -4,7 +4,7 @@
 */
 
 .breadcrumb {
-    display: flex; /* Use flex layout to keep items in a single line */
+    display: table; /* Use flex layout to keep items in a single line */
     flex-wrap: nowrap; /* Prevent wrapping to the next line */
     padding: 8px 15px;
     margin-bottom: 20px;
@@ -27,5 +27,9 @@
   
   .breadcrumb > li:last-child {
     margin-right: 0; /* Remove spacing for the last item */
+  }
+
+  .breadcrumb-item.breadcrumb-item+.breadcrumb-item::before {
+    float:none;
   }
   
