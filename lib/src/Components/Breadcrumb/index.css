@@ -4,7 +4,6 @@
 */
 
 .breadcrumb {
-    display: table; /* Use flex layout to keep items in a single line */
     flex-wrap: nowrap; /* Prevent wrapping to the next line */
     padding: 8px 15px;
     margin-bottom: 20px;
