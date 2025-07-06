@@ -13,7 +13,7 @@ const HoverNotes = ()=>{
   <Card padding={15} backgroundColor={Colors.grey}>
   <div className="mbot10p"><b>Sample Code:</b></div>
   <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0','1']}  />
-  <Highlight content={SampleCodeJS.toString()} lang="html" lines={['5T8']}  />
+  <Highlight content={SampleCodeJS.toString()} lang="html" lines={['5T16']}  />
   <div className="mtop10p mbot10p"><b>Output:</b></div>
   <SampleNote1 />
   </Card>
@@ -26,7 +26,8 @@ const HoverNotes = ()=>{
     <Card padding={15} backgroundColor={Colors.grey}>
     <div className="mbot10p"><b>Sample Code:</b></div>
     <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0','1']}  />
-    <Highlight content={SampleCodeJS.toString()} lang="html" lines={['14T17']}  />
+    <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['22T26']}  />
+    <Highlight content={SampleCodeJS.toString()} lang="html" lines={['29T40']}  />
     <div className="mtop10p mbot10p"><b>Output:</b></div>
     <SampleNote2 />
     </Card>
