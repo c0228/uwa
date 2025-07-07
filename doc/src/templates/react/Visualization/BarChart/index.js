@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SimpleHeader, ContainerFluid, Row, Col, Order, Card, Highlight, Colors } from 'e-ui-react';
-import { SampleNote1, SampleNote2, SampleNote3, SampleNote4, SampleNote5 } from './components/SampleCode.js';
+import { SampleNote1, SampleNote2, SampleNote3, SampleNote4, SampleNote5, SampleNote6 } from './components/SampleCode.js';
 import { default as SampleCodeJS } from '!!raw-loader!./components/SampleCode.js';
 import { DocumentHeader } from "@DocUtils/DocHeaders.js";
 import { ComponentAttributesTable } from "./temp-data/ComponentAttributesTable.js";
@@ -157,7 +157,37 @@ const BarChartNotes = () => {
     </>);
   };
 
-  return (<Order data={[<Note1 />, <Note2 />, <Note3 />, <Note4 />, <Note5 />]} />);
+    const Note6 = () => {
+    const NoteChart = () => {
+      return (<>
+        <SampleNote6 />
+      </>);
+    };
+
+    const NoteCode = () => {
+      return (<>
+        <div className="mbot10p"><b>Sample Code:</b></div>
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0', '1']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['120T126']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="html" lines={['129']}  />
+      </>);
+    };
+
+    return (<>
+      <div className="mtop10p mbot10p"><b>Vertical Bar Chart:</b></div>
+      <Card padding={15} backgroundColor={Colors.grey}>
+        <ContainerFluid>
+          <Row>
+            <Col sm={5}><NoteChart /></Col>
+            <Col sm={7}><NoteCode /></Col>
+          </Row>
+        </ContainerFluid>
+      </Card>
+
+    </>);
+  };
+
+  return (<Order data={[<Note1 />, <Note2 />, <Note3 />, <Note4 />, <Note5 />, <Note6 />]} />);
 };
 
 export const BarChartPage = () => {
