@@ -1,3 +1,13 @@
+/* Badge Background */
+.bg-primary-o { border:1px solid #0d6efd;color: #0d6efd; }
+.bg-secondary-o { border:1px solid #6c757d;color: #6c757d; }
+.bg-success-o { border:1px solid #198754;color: #198754; }
+.bg-danger-o { border:1px solid #dc3545;color: #dc3545; }
+.bg-warning-o { border:1px solid #ffc107;color: #ffc107; }
+.bg-info-o { border:1px solid #0dcaf0;color: #0dcaf0; }
+.bg-light-o { border:1px solid #f8f9fa;color: #f8f9fa; }
+.bg-dark-o { border:1px solid #212529;color: #212529; }
+
 /* HTML, BODY AND SCROLL CSS ::: START */
 code {
  background-color: rgba(197, 186, 186, 0.3);
