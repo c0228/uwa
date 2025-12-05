@@ -16,10 +16,10 @@ if($_GET["action"]=='USER_REGISTER' && $_SERVER['REQUEST_METHOD']=='POST'){
  $htmlData = json_decode( file_get_contents('php://input'), true );	
  $surName = ''; if( array_key_exists("surName", $htmlData) ){ $surName = $htmlData["surName"]; }
  $name = ''; if( array_key_exists("name", $htmlData) ){ $name = $htmlData["name"];   }
- $dob = ''; if( array_key_exists("dob", $htmlData) ){ $dob = $htmlData["dob"];  }
- $gender = ''; if( array_key_exists("gender", $htmlData) ){ $gender = $htmlData["gender"];  }
- $email = ''; if( array_key_exists("email", $htmlData) ){ $email = $htmlData["email"];  }
- $emailVal = 'N'; if( array_key_exists("emailVal", $htmlData) ){ $emailVal = $htmlData["emailVal"];  }
+ $dob = ''; if( array_key_exists("dob", $htmlData) ){ $dob =  $htmlData["dob"];  }
+ $gender = ''; if( array_key_exists("gender", $htmlData) ){ $ gender = $htmlData["gender"];  }
+ $email = ''; if( array_key_exists("email", $htmlData) ){ $ema il = $htmlData["email"];  }
+ $emailVal = 'N'; if( array_key_exists("emailVal", $htmlData) ) { $emailVal = $htmlData["emailVal"];  }
  $accPwd = ''; if( array_key_exists("accPwd", $htmlData) ){ $accPwd = $htmlData["accPwd"];  }
  $mcountrycode = ''; if( array_key_exists("mcountrycode", $htmlData) ){ $mcountrycode = $htmlData["mcountrycode"];  }
  $mobile = ''; if( array_key_exists("mobile", $htmlData) ){ $mobile = $htmlData["mobile"];  }
@@ -28,7 +28,7 @@ if($_GET["action"]=='USER_REGISTER' && $_SERVER['REQUEST_METHOD']=='POST'){
  $userTz = 'Asia/Kolkata'; if( array_key_exists("userTz", $htmlData) ){ $userTz = $htmlData["userTz"];  }
  $accactive = 'N'; if( array_key_exists("accactive", $htmlData) ){ $accactive = $htmlData["accactive"];  }
  $userRole = ''; if( array_key_exists("userRole", $htmlData) ){ $userRole = $htmlData["userRole"];  }
- $query = $userAccountModule->query_add_userAccount($surName, $name, $dob, $gender, $email, $emailVal, $accPwd, $mcountrycode, $mobile, $mobileVal, $dp, 
+ $query = $userAccountModule->query_add_userAccount($surName, $n ame, $dob, $gender, $email, $emailVal, $accPwd, $mcountrycode, $mobile, $mobileVal, $dp, 
 	$userTz, $accactive, $userRole);
  $result = array();
  $status = $database->addupdateData($query);
@@ -41,15 +41,15 @@ if($_GET["action"]=='USER_REGISTER' && $_SERVER['REQUEST_METHOD']=='POST'){
 else if($_GET["action"]=='USER_LOGIN' && $_SERVER['REQUEST_METHOD']=='POST'){
 	$htmlData = json_decode( file_get_contents('php://input'), true );	
 	$email = ''; if( array_key_exists("email", $htmlData) ){ $email = $htmlData["email"];  }
-	$accPwd = ''; if( array_key_exists("accPwd", $htmlData) ){ $accPwd = $htmlData["accPwd"];  }
+	$accPwd = ''; if( array_key_exists("accPwd", $htmlData) ){ $a ccPwd = $htmlData["accPwd"];  }
 	$result = array();
 	$status = 'No Record Found';
 	if(strlen($email)>0 && strlen($accPwd)>0){
 	 $query = $userAccountModule-> query_view_userAccount($email, $accPwd);
 	 $data = json_decode( $database->getJSONData($query) );
 	 $result["data"] = $data;
-	 $status = 'Record Found';
-	}
+	 $status = 'Record Found'; 
+	} 
 	$result["status"] = $status;
 	echo json_encode( $result );
 } 
@@ -67,7 +67,7 @@ else if($_GET["action"]=='USER_DETAILS_UPDATE' && $_SERVER['REQUEST_METHOD']=='P
  $userId = ''; if( array_key_exists("userId", $htmlData) ){ $userId = $htmlData["userId"]; }
  $surName = ''; if( array_key_exists("surName", $htmlData) ){ $surName = $htmlData["surName"]; }
  $name = ''; if( array_key_exists("name", $htmlData) ){ $name = $htmlData["name"];   }
- $dob = ''; if( array_key_exists("dob", $htmlData) ){ $dob = $htmlData["dob"];  }
+ $dob  = ''; if( array_key_exists("dob", $htmlData) ){ $dob = $htmlData["dob"];  }
  $gender = ''; if( array_key_exists("gender", $htmlData) ){ $gender = $htmlData["gender"];  }
  $email = ''; if( array_key_exists("email", $htmlData) ){ $email = $htmlData["email"];  }
  $emailVal = 'N'; if( array_key_exists("emailVal", $htmlData) ){ $emailVal = $htmlData["emailVal"];  }
@@ -99,7 +99,7 @@ else if($_GET["action"]=='SEND_RESETPASSWORD_EMAIL' && $_SERVER['REQUEST_METHOD'
 	$subject = $EMAIL_SUBJ_FORGOTPWD;
 	$emailExpiryTime = $EMAIL_EXPIRY_TIME;
 
-	// TODO: Using "to" email - Get the Customer Timezone, Customer Name and Customer ID
+	//  TODO: Using "to" email - Get the Customer Timezone, Customer Name and Customer ID
 	$query = $userAccountModule->query_validate_userEmail($to);
 	$data = json_decode( $database->getJSONData($query) );
 	$status=array();
@@ -113,7 +113,7 @@ else if($_GET["action"]=='SEND_RESETPASSWORD_EMAIL' && $_SERVER['REQUEST_METHOD'
 			'TimezoneAt'.$timezone);
 		
 		echo 'getExpiryTimestamp: '.getExpiryTimestamp($emailExpiryTime, $TIMESTAMP_TZ_FORMAT, $timezone);
-
+ 
 		if( array_key_exists("template", $htmlData) ){ 
 			$template = $htmlData["template"]; 
 			require_once './../mail-templates/password-change/'.$template.'.php';
@@ -123,3 +123,4 @@ else if($_GET["action"]=='SEND_RESETPASSWORD_EMAIL' && $_SERVER['REQUEST_METHOD'
    }
    echo json_encode($status);
 }
+ 

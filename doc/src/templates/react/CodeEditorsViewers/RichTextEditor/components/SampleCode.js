@@ -4,7 +4,9 @@ import { RichTextEditor, Form } from 'e-ui-react';
 export const SampleNote1 = () =>{
  return (<>
  <Form name="testForm">
-  <RichTextEditor name="summernote" placeholder="Write your Story" height={120} 
+  <RichTextEditor name="summernote" 
+  backgroundColor="#fff9c4"
+  placeholder="Write your Story" height={120} 
   validation={{
     required:{
         value: true,
