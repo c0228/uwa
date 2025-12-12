@@ -4,7 +4,19 @@ import { Form } from 'e-ui-react';
 
 export const SampleNote1 = () =>{
 
- const data = ["Nellutla", "Nethula", "Nemalikanti"];
+ const data = ["Nellutla", 
+    (
+      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <span 
+          data-no-highlight 
+          style={{ padding:'8px', borderRadius:'50%', backgroundColor:'green', color:'white' }}
+        >
+          N
+        </span>
+        <span>Nethula</span>
+      </div>
+    ),
+    "Nemalikanti"];
 
  return (<>
  <Autocomplete name="surname" label="Surname" placeholder="Enter your Surname" autoCompleteData={data} />

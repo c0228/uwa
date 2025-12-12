@@ -14,8 +14,8 @@ const AutocompleteNotes = () => {
       <Card padding={15} backgroundColor={Colors.grey}>
         <div className="mbot10p"><b>Sample Code:</b></div>
         <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['6']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="html" lines={['9']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['6T18']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="html" lines={['21']}  />
         <div className="mtop10p mbot10p"><b>Output:</b></div>
         <Card padding={15} backgroundColor={Colors.light}><SampleNote1 /></Card>
       </Card>
@@ -28,9 +28,9 @@ const AutocompleteNotes = () => {
       <Card padding={15} backgroundColor={Colors.grey}>
         <div className="mbot10p"><b>Sample Code:</b></div>
         <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0', '1']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['14']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['16T26']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="html" lines={['30']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['26']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['28T38']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="html" lines={['42']}  />
         <div className="mtop10p mbot10p"><b>Output:</b></div>
         <Card padding={15} backgroundColor={Colors.light}><SampleNote2 /></Card>
       </Card>
@@ -43,8 +43,8 @@ const AutocompleteNotes = () => {
       <Card padding={15} backgroundColor={Colors.grey}>
         <div className="mbot10p"><b>Sample Code:</b></div>
         <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1', '2']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['36']}  />
-        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['38T52']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['48']}  />
+        <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['50T64']}  />
         <div className="mtop10p mbot10p"><b>Output:</b></div>
         <Card padding={15} backgroundColor={Colors.light}><SampleNote3 /></Card>
       </Card>
