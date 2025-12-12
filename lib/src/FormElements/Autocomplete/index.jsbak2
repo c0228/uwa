@@ -1,14 +1,12 @@
 /**
- * Autocomplete supports all modes:
- *
- * Mode-1: Static local array + local filtering
- * Mode-2: Initial API-loaded array + local filtering
- * Mode-3A: Live API search → NO internal filtering
- * Mode-3B: Live API search → WITH internal filtering
+ * Autocomple in such a way - 
+ * 1) initially, we will have data variable, on search of values in data variable, we will get dropdown filter. 
+ * 2) initially, we call API and get data, on search of values in that data, we will get dropdown filter. 
+ * 3) New Scenario, happing is we are sending search value to API and results we are getting that should be showing in dropdown.
  */
-
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
+  FilterArray,
   FormInputValidate,
   KeyPressValidate,
   getForm,
@@ -18,10 +16,11 @@ import {
 import "./index.css";
 
 /* ---------------------------------------------------------------
-   ⭐ Extract JSX inner text
+   ⭐ Helper: Recursively extract text from JSX
 ----------------------------------------------------------------- */
 function getTextFromJSX(node) {
   if (!node) return "";
+
   if (typeof node === "string") return node;
   if (typeof node === "number") return String(node);
 
@@ -30,18 +29,21 @@ function getTextFromJSX(node) {
       .map((child) => getTextFromJSX(child))
       .join(" ");
   }
+
   return "";
 }
 
 /* ---------------------------------------------------------------
-   ⭐ Highlight text (skipping data-no-highlight)
+   ⭐ Helper: Highlight JSX text, skip elements with data-no-highlight
 ----------------------------------------------------------------- */
 function highlightJSX(node, query) {
   if (!query || !node) return node;
 
   if (typeof node === "string") {
     const regex = new RegExp(`(${query})`, "gi");
-    return node.split(regex).map((part, i) =>
+    const parts = node.split(regex);
+
+    return parts.map((part, i) =>
       regex.test(part) ? <b key={i}>{part}</b> : part
     );
   }
@@ -52,17 +54,20 @@ function highlightJSX(node, query) {
     const children = React.Children.map(node.props.children, (child) =>
       highlightJSX(child, query)
     );
+
     return React.cloneElement(node, { ...node.props }, children);
   }
+
   return node;
 }
 
 /* ---------------------------------------------------------------
-   ⭐ Convert any item to JSX
+   ⭐ Helper: Convert any input item (string or JSX) to JSX
 ----------------------------------------------------------------- */
 function getJSXItem(item) {
   if (React.isValidElement(item)) return item;
-  return typeof item === "string" ? item : String(item);
+  if (typeof item === "string") return item;
+  return String(item);
 }
 
 /* ---------------------------------------------------------------
@@ -73,10 +78,9 @@ export const Autocomplete = ({
   label,
   placeholder,
   value,
-  autoCompleteData = [],
+  autoCompleteData,
   validation,
   onChange,
-  apiFilterMode = "A" // "A" → show API results as is | "B" → filter API results also
 }) => {
   const formContext = getForm();
   const formName = formContext?.name;
@@ -84,106 +88,53 @@ export const Autocomplete = ({
 
   const [filteredData, setFilteredData] = useState([]);
   const [show, setShow] = useState(false);
-  const [autoCompleteValue, setAutoCompleteValue] = useState(value || "");
+  const initialValue = value === undefined ? "" : value;
+  const [autoCompleteValue, setAutoCompleteValue] = useState(initialValue);
 
-  const apiTriggeredRef = useRef(false);
-  const lastTypedValueRef = useRef("");
+  const FormMode = form?.[formName]?.mode;
+  const FormErrorMessage = form?.[formName]?.[name]?.errorMessage;
 
-  /* ---------------------------------------------------------------
-     ⭐ Detect API updates (Mode-3)
-  ----------------------------------------------------------------- */
+  /* Reset value on form reset */
   useEffect(() => {
-    if (apiTriggeredRef.current) {
-      if (autoCompleteValue.trim() === "") {
-        setFilteredData([]);
-        setShow(false);
-        return;
-      }
-
-      // Mode-3A: Show API results exactly
-      if (apiFilterMode === "A") {
-        setFilteredData(autoCompleteData);
-        setShow(true);
-        return;
-      }
-
-      // Mode-3B: Re-filter API results
-      if (apiFilterMode === "B") {
-        const lower = autoCompleteValue.toLowerCase();
-        const refined = autoCompleteData.filter((item) => {
-          if (typeof item === "string") return item.toLowerCase().includes(lower);
-          if (React.isValidElement(item)) {
-            const txt = item.props?.label || getTextFromJSX(item);
-            return txt.toLowerCase().includes(lower);
-          }
-          return false;
-        });
-
-        setFilteredData(refined);
-        setShow(true);
-        return;
-      }
-    }
-    // eslint-disable-next-line
-  }, [autoCompleteData]);
+    if (FormMode === FORM_RESET) setAutoCompleteValue(initialValue);
+  }, [FormMode]);
 
   /* ---------------------------------------------------------------
-     ⭐ Normal local filtering (Mode-1 & Mode-2)
+     ⭐ Filter items (string or JSX) based on input
   ----------------------------------------------------------------- */
-  const DataFilter = (val, showDropdown) => {
-  setAutoCompleteValue(val);
+  const DataFilter = (val, status) => {
+    setAutoCompleteValue(val);
 
-  if (!val.trim()) {
-    setFilteredData([]);
-    setShow(false);
-    apiTriggeredRef.current = false;
-    return;
-  }
-
-  const lower = val.toLowerCase();
-
-  // Filter from the current autoCompleteData
-  const filtered = (autoCompleteData || []).filter((item) => {
-    if (typeof item === "string") return item.toLowerCase().includes(lower);
-    if (React.isValidElement(item)) {
-      const txt = item.props?.label || getTextFromJSX(item);
-      return txt.toLowerCase().includes(lower);
+    // Hide dropdown if input is empty
+    if (!val || val.trim() === "") {
+      setFilteredData([]);
+      setShow(false);
+      return;
     }
-    return false;
-  });
 
-  setFilteredData(filtered);
+    const lower = val.toLowerCase();
 
-  // Show dropdown only if filtered has something
-  setShow(filtered.length > 0 && showDropdown);
-};
+    const filtered = autoCompleteData.filter((item) => {
+      if (typeof item === "string") return item.toLowerCase().includes(lower);
 
+      if (React.isValidElement(item)) {
+        const text = item.props?.label || getTextFromJSX(item);
+        return text.toLowerCase().includes(lower);
+      }
 
-  /* ---------------------------------------------------------------
-     ⭐ Handle Input Change
-  ----------------------------------------------------------------- */
-  const handleInputChange = (val) => {
-    lastTypedValueRef.current = val;
+      return false;
+    });
 
-    // Always update internal value & filtered dropdown
-    DataFilter(val, true);
-
-    // Trigger external onChange if provided
-    if (onChange) {
-        apiTriggeredRef.current = true;
-        setTimeout(() => onChange(val), 0); // async to avoid blocking UI
-    } else {
-        apiTriggeredRef.current = false;
-    }
-};
-
+    setFilteredData(filtered);
+    setShow(status);
+  };
 
   /* ---------------------------------------------------------------
      ⭐ Validation
   ----------------------------------------------------------------- */
   const autoCompleteValidate = async () => {
     let result = { value: autoCompleteValue };
-    if (validation) {
+    if (validation !== undefined) {
       result = await FormInputValidate(validation, autoCompleteValue);
     }
 
@@ -196,9 +147,10 @@ export const Autocomplete = ({
     autoCompleteValidate();
   }, [autoCompleteValue]);
 
-  const FormMode = form?.[formName]?.mode;
-  const FormError = form?.[formName]?.[name]?.errorMessage;
-  const showValidation = FormMode === FORM_SUBMITTED || autoCompleteValue;
+  const validateOnSubmit =
+    FormMode === FORM_SUBMITTED || autoCompleteValue?.length > 0;
+
+  const isErrorMessageExist = FormErrorMessage?.length > 0;
 
   /* ---------------------------------------------------------------
      ⭐ Render
@@ -208,8 +160,8 @@ export const Autocomplete = ({
       {label && (
         <label
           className={
-            showValidation
-              ? FormError
+            validateOnSubmit
+              ? isErrorMessageExist
                 ? "form-label form-label-validation-invalid"
                 : "form-label form-label-validation-valid"
               : "form-label"
@@ -230,47 +182,57 @@ export const Autocomplete = ({
           type="text"
           name={name}
           className={
-            showValidation
-              ? FormError
+            validateOnSubmit
+              ? isErrorMessageExist
                 ? "form-control dropdown-toggle form-control-validation-invalid"
                 : "form-control dropdown-toggle form-control-validation-valid"
               : "form-control dropdown-toggle"
           }
           placeholder={placeholder}
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
           value={autoCompleteValue}
-          onChange={(e) => handleInputChange(e.target.value)}
+          onChange={(e) =>{
+            const val = e.target.value;
+            DataFilter(val, true);
+            onChange?.(val);
+          }}
           onKeyPress={(e) => KeyPressValidate(e, validation?.pattern?.value)}
         />
 
-        {show && autoCompleteValue.trim() && filteredData.length > 0 && (
-          <ul className="dropdown-menu autocomplete-dropdown show">
+        {/* ---------------------- Dropdown ---------------------- */}
+        {show && autoCompleteValue.trim() !== "" && filteredData.length > 0 && (
+          <ul
+            className="dropdown-menu autocomplete-dropdown show"
+            aria-labelledby={name}
+          >
             {filteredData.map((item, i) => {
               const jsxItem = getJSXItem(item);
-              const highlighted = highlightJSX(jsxItem, autoCompleteValue);
+              const highlightedJSX = highlightJSX(jsxItem, autoCompleteValue);
 
               return (
                 <li
                   key={i}
                   onClick={() => {
-                    const txt =
+                    const text =
                       typeof item === "string"
                         ? item
                         : item.props?.label || getTextFromJSX(item);
 
-                    apiTriggeredRef.current = false;
-                    DataFilter(txt, false);
+                    DataFilter(text, false);
                   }}
                 >
-                  <a className="dropdown-item">{highlighted}</a>
+                  <a className="dropdown-item">{highlightedJSX}</a>
                 </li>
               );
             })}
           </ul>
         )}
 
-        {showValidation && FormError && (
+        {/* ---------------------- Validation Message ---------------------- */}
+        {validateOnSubmit && isErrorMessageExist && (
           <div align="right" className="form-feedback-validation-invalid">
-            {FormError}
+            {FormErrorMessage}
           </div>
         )}
       </div>
