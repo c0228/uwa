@@ -32,9 +32,16 @@ body::-webkit-scrollbar-thumb,
  background-color: #000000;
 }
 
+.lh28p { line-height: 28px; }
+
+.padTop5p { padding-top:5px; }
+.padTop10p { padding-top:10px; }
+.padTop15p { padding-top:15px; }
+
 .padLeft5p { padding-left:5px; }
 .padLeft10p { padding-left:10px; }
 .padLeft15p { padding-left:15px; }
+
 .padRight5p { padding-right:5px; }
 
 @media (max-width: 1200px) {
