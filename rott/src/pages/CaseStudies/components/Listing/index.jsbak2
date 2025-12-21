@@ -1,0 +1,161 @@
+import React from "react";
+import { ContainerFluid, Row, Col, Card, Badge, Icon } from "e-ui-react";
+import { CastStudyData } from "./data.js";
+
+/* =========================
+   HIGHLIGHT LIST COMPONENT
+========================= */
+const Highlights = ({ title, icon, items }) => (
+  <div className="mtop15p">
+    <div
+      style={{
+        padding: "6px 10px 8px 15px",
+        fontSize: "16px",
+        backgroundColor: "#f1f1f1",
+        borderRadius: "5px 18px 18px 5px"
+      }}
+    >
+      <Icon
+        type="FontAwesome"
+        name={icon.title.label}
+        size={icon.title.size}
+        color={icon.title.color}
+        style={{ marginRight: "6px" }}
+      />
+      <b>{title}</b>
+    </div>
+
+    <div className="padLeft15p padTop10p">
+      <div className="kyt-hgl-container">
+        {items.map((item, index) => (
+          <div key={index} className="kyt-hgl-item">
+            <Icon
+              type="FontAwesome"
+              name={icon.list.label}
+              size={icon.list.size}
+              color={icon.list.color}
+              className="kyt-hgl-icon"
+            />
+            <span className="kyt-hgl-text app-text">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+/* =========================
+   CASE STUDY CARD
+========================= */
+const CaseStudyCard = ({ data }) => (
+  <div className="mtop15p">
+    <Card padding={0} style={{ height: "73vh" }}>
+      {/* FLEX WRAPPER */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100%"
+        }}
+      >
+        {/* CONTENT AREA */}
+        <div style={{ padding: "15px", flexGrow: 1 }}>
+          <Badge type="danger" label={<b>Case #{data.index}</b>} size="12" />
+
+          <h4 className="mtop5p">
+            <b>{data.title}</b>
+          </h4>
+
+          <p className="app-text">{data.desc}</p>
+
+          <Row>
+            <Col md={6}>
+              <Highlights
+                title="Risk to Society"
+                icon={{
+                  title: { label: "fa-warning", size: 14, color: "#c62828" },
+                  list: { label: "fa-times-circle", size: 14, color: "#c62828" }
+                }}
+                items={data.riskToSociety}
+              />
+            </Col>
+
+            <Col md={6}>
+              <Highlights
+                title="How KYT Resolves This?"
+                icon={{
+                  title: { label: "fa-check-circle", size: 16, color: "#2e7d32" },
+                  list: { label: "fa-check-circle", size: 16, color: "#2e7d32" }
+                }}
+                items={data.kytResolution}
+              />
+            </Col>
+          </Row>
+        </div>
+
+        {/* OUTCOME – ALWAYS AT BOTTOM */}
+        <div
+          style={{
+            backgroundColor: "#e8f5e9",
+            borderTop: "1px solid #c8e6c9",
+            borderBottomLeftRadius: "12px",
+            borderBottomRightRadius: "12px"
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#2e7d32",
+              padding: "6px 12px",
+              color: "#fff",
+              fontSize: "14px"
+            }}
+          >
+            <b>Our Platform Outcome</b>
+          </div>
+
+          <div
+            style={{
+              padding: "12px 15px",
+              color: "#1b5e20"
+            }}
+          >
+            {data.outcome}
+          </div>
+        </div>
+      </div>
+    </Card>
+  </div>
+);
+
+/* =========================
+   GRID BUILDER
+========================= */
+const CaseStudyGrid = ({ data }) => {
+  const rows = [];
+
+  for (let i = 0; i < data.length; i += 2) {
+    rows.push(
+      <Row key={i}>
+        <Col md={6}>
+          <CaseStudyCard data={data[i]} />
+        </Col>
+        <Col md={6}>
+          {data[i + 1] && <CaseStudyCard data={data[i + 1]} />}
+        </Col>
+      </Row>
+    );
+  }
+
+  return <>{rows}</>;
+};
+
+/* =========================
+   MAIN COMPONENT
+========================= */
+const Listing = () => (
+  <ContainerFluid>
+    <CaseStudyGrid data={CastStudyData} />
+  </ContainerFluid>
+);
+
+export default Listing;

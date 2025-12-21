@@ -1,0 +1,17 @@
+.hero {
+      background: linear-gradient(135deg, #0d6efd, #0a58ca);
+      color: white;
+      padding: 80px 0;
+    }
+    .badge-kyt {
+      background-color: #e7f1ff;
+      color: #0d6efd;
+      font-weight: 500;
+    }
+    .card {
+      border-radius: 12px;
+    }
+    .metric {
+      font-size: 2rem;
+      font-weight: 700;
+    }
