@@ -8,6 +8,9 @@ import LegalCompliance from "@Pages/Rules/LegalCompliance/index.js";
 import PrivacyPolicy from "@Pages/Rules/PrivacyPolicy/index.js";
 import TermsOfUse from "@Pages/Rules/TermsOfUse/index.js";
 import ContactUs from "@Pages/ContactUs/index.js";
+
+import RAForm from "@Pages/Forms/RAForm/index.js";
+
 import Itenary from "@Pages/Itenary/index.js";
 import Menu from "@Pages/Menu/index.js";
 
@@ -23,6 +26,10 @@ export const AppRouting = ()=>{
          <Route exact path="/privacy-policy" element={<PrivacyPolicy/>} />
          <Route exact path="/terms-of-use" element={<TermsOfUse/>} />
          <Route exact path="/contact-us" element={<ContactUs/>} />
+
+         <Route exact path="/rental-agreement-form" element={<RAForm/>} />
+
+
          <Route exact path="/itenary" element={<Itenary/>} />
          <Route exact path="/menu" element={<Menu />} />
        </Routes>
