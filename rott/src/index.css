@@ -6,3 +6,7 @@
 .kyt-hgl-text { flex-grow: 1;padding-left: 5px; }
 a { text-decoration:none;color:#000 !important; }
 a:hover { color:#c71527 !important;font-weight:bold; }
+.fs16p { font-size:16px; }
+.mbot15p { margin-bottom:15px; }
+.mbot75p { margin-bottom:75px; }
+.padLeft15p { padding-left:15px; }

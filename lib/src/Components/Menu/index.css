@@ -4,3 +4,5 @@
 .tab-content > .pill-active {
  display: block;
 }
+.nav-pills .nav-link { color:#000 !important;font-weight:400; }
+.nav-pills .nav-link.active { color:#fff !important;font-weight:400; }
