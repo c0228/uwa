@@ -1,8 +1,28 @@
 import React from "react";
 import { Icon, Card, Table } from "e-ui-react";
+import { Title, DisclaimerNote } from '@Templates/Utils/index.js';
 
-const Title = ({ children }) =>{
- return (<div><h4 style={{ color:'#dc3545' }}><b>{children}</b></h4></div>);
+const BasicRules = () =>{
+    return (<div>
+        <div><h3><b>Basic Rules You Must Know (India)</b></h3></div>
+        <div className="lh28p fs16p mbot75p">
+            <div className="mtop15p">Before understanding state-wise stamp duty and registration rules, it is important to 
+                    know the <b>basic legal rules</b> that apply to <b>all online rental agreements in India.</b>
+                    These rules apply to <b>both Commercial and Residential rental agreements,</b> unless mentioned otherwise.</div>
+            <div className="mtop15p">
+                    <DisclaimerNote>
+                        <div>This page is for <b>general informational purposes only</b>.<br/>
+                        Stamp duty and registration rules may change based on state government notifications.</div>
+                    </DisclaimerNote>
+            </div>
+            <AboutORA />
+            <ORALegalValidity />
+            <AboutStampDuty />
+            <RegistrationProcess />
+            <OnlineSignatures />
+            <CommercialResidentialRentalAgreements />
+        </div>
+    </div>);
 };
 
 export const AboutORA = () =>{
@@ -26,7 +46,7 @@ export const AboutORA = () =>{
  </div>);
 };
 
-export const ORALegalValidity = () =>{
+const ORALegalValidity = () =>{
  return (<div className="mtop15p">
                     <Title>2. Online Rental Agreements Legal Validity</Title>
                     <div className="padLeft15p">
@@ -52,7 +72,7 @@ export const ORALegalValidity = () =>{
     </div>);
 };
 
-export const AboutStampDuty = () =>{
+const AboutStampDuty = () =>{
   return (<div className="mtop15p">
     <Title>3. About Stamp Duty</Title>
     <div className="padLeft15p">
@@ -99,7 +119,7 @@ export const AboutStampDuty = () =>{
   </div>);  
 };
 
-export const RegistrationProcess = () =>{
+const RegistrationProcess = () =>{
  return (<div className="mtop15p">
     <Title>4. Registration Process</Title>
     <div className="padLeft15p">
@@ -138,7 +158,7 @@ export const RegistrationProcess = () =>{
  </div>);
 };
 
-export const OnlineSignatures = () =>{
+const OnlineSignatures = () =>{
  return (<div className="mtop15p">
     <Title>5. Online Signatures</Title>
     <div className="padLeft15p">
@@ -161,7 +181,7 @@ export const OnlineSignatures = () =>{
  </div>);
 };
 
-export const CommercialResidentialRentalAgreements = () =>{
+const CommercialResidentialRentalAgreements = () =>{
  return (<div className="mtop15p">
     <Title>6. Commercial vs Residential Rental Agreements</Title>
     <div className="padLeft15p">
@@ -199,3 +219,4 @@ export const CommercialResidentialRentalAgreements = () =>{
  </div>);
 };
 
+export default BasicRules;

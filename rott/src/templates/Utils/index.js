@@ -1,6 +1,10 @@
 import React from "react";
 import { Icon } from "e-ui-react";
 
+export const Title = ({ color, children }) =>{
+ return (<div><h4 style={{ color:color?color:'#dc3545' }}><b>{children}</b></h4></div>);
+};
+
 export const DisclaimerNote = ({ children }) =>{
  return (<div style={{ padding:'15px', backgroundColor:'#ccc', borderLeft:'5px solid #999' }}>
     <div><h4><b>
