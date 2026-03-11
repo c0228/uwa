@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Toast, Select, Button } from 'e-ui-react';
+import { Toast, Select, Button, Icon } from 'e-ui-react';
 
 export const SampleNote1 = () =>{
 
@@ -27,9 +27,12 @@ export const SampleNote1 = () =>{
       <Toast
         position={selected}
         show={show}
-        message="Hello, world! This is a toast message."
-        onClose={() => setShow(false)}
-      />
+        onClose={() => setShow(false)}>
+          <div>
+            <Icon type="FontAwesome" name="fa-hand-paper-o" size={13} style={{ marginRight:'5px' }} />
+            <span><b>Hello, world! This is a toast message.</b></span>
+          </div>
+        </Toast>
     </div>
   ); 
  };
