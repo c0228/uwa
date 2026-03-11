@@ -5,18 +5,20 @@ export const SampleNote1 = () =>{
  
  const SimpleModal = ()=>{
   
-  const [ showModel, setShowModal ] = useState(false);
+   const [ showModel, setShowModal ] = useState(false);
 
-  const HelloWorld = ()=>{
-   return (<div>Hello World</div>);
-  };
+   const HelloWorld = ()=>{
+    return (<div>Hello World</div>);
+   };
 
-  return (<>
-   <Button type="primary" size={11} onClick={()=>setShowModal(true)}>Open Simple Model</Button>
-   <Modal title="Modal Header" show={showModel} onClose={setShowModal} content={<HelloWorld />} />
+   return (<>
+    <Button type="primary" size={11} onClick={()=>setShowModal(true)}>Open Simple Model</Button>
+    <Modal title="Modal Header" show={showModel} onClose={setShowModal}>
+     <HelloWorld />
+    </Modal>
    </>);
 
- };
+  };
 
   return (<SimpleModal />);
 
