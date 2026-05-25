@@ -43,6 +43,7 @@ body::-webkit-scrollbar-thumb,
 .padLeft15p { padding-left:15px; }
 
 .padRight5p { padding-right:5px; }
+.padRight15p { padding-right:15px; }
 
 @media (max-width: 1200px) {
  body {
