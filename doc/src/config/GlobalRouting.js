@@ -134,6 +134,7 @@ import { TableBlogNfInfo } from '@DocCore/backend/DatabasesTablesDesign/table-bl
 
 /* React Native ::: START */
 import { RNNotification } from '@DocReactNativeComponents/Notification/index.js';
+import { Admob } from '@DocReactNativeComponents/Admob/index.js';
 /* React Native ::: END */
 
 export const AppRouting = ()=>{
@@ -258,6 +259,8 @@ export const AppRouting = ()=>{
           {/*  Backend Urls ::: END */}
 
             <Route exact path="rn-components/notification" element={<ReactNativePage activeId="reactNative"><RNNotification /></ReactNativePage>} />
+            <Route exact path="rn-components/admob" element={<ReactNativePage activeId="reactNative"><Admob /></ReactNativePage>} />
+            
             
        </Routes>    
     </BrowserRouter>
