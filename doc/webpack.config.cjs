@@ -130,6 +130,7 @@ target: 'web',
         '@DocReactUtility': Path.resolve(__dirname, 'src/templates/react/Utilities'),
         '@DocReactVisualization': Path.resolve(__dirname, 'src/templates/react/Visualization'),
         '@DocBackendUserModules': Path.resolve(__dirname, 'src/templates/backend/UserModules'),
+        '@DocReactNativeComponents': Path.resolve(__dirname, 'src/templates/react-native/Components'),
         // Needed when library is linked via `npm link` to app
         /** This is implemented when the React Hooks are not working under the library */
         react: Path.resolve("./node_modules/react"),

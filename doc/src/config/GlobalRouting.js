@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 /* React Imports ::: START */
 const ReactPage  = React.lazy( ()=>import('@DocCore/react/Page.js') );
+const ReactNativePage  = React.lazy( ()=>import('@DocCore/react-native/Page.js') );
 const BackendPage  = React.lazy( ()=>import('@DocCore/backend/Page.js') );
 
 import Welcome from '@DocCore/welcome/index.js';
@@ -131,6 +132,10 @@ import { TableUserAccountsInfo } from '@DocCore/backend/DatabasesTablesDesign/ta
 import { TableBlogNfInfo } from '@DocCore/backend/DatabasesTablesDesign/table-blog_nf_info/index.js';
 /* Backend Imports ::: END */
 
+/* React Native ::: START */
+import { RNNotification } from '@DocReactNativeComponents/Notification/index.js';
+/* React Native ::: END */
+
 export const AppRouting = ()=>{
 
  return (
@@ -251,6 +256,9 @@ export const AppRouting = ()=>{
             <Route exact path="DatabasesTablesDesign/TableUserAccountsInfo" element={<BackendPage activeId="backend"><TableUserAccountsInfo /></BackendPage>} />
             <Route exact path="DatabasesTablesDesign/TableBlogNfInfo" element={<BackendPage activeId="backend"><TableBlogNfInfo /></BackendPage>} />
           {/*  Backend Urls ::: END */}
+
+            <Route exact path="rn-components/notification" element={<ReactNativePage activeId="reactNative"><RNNotification /></ReactNativePage>} />
+            
        </Routes>    
     </BrowserRouter>
  );
