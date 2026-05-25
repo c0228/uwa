@@ -91,6 +91,12 @@ export const Admob = () =>{
                     <li><IconDisplay status={true} /> Rewarded ads must <b>clearly show reward</b></li>
                     <li><IconDisplay status={true} /> Interstitials only on <b>natural breaks</b></li>
                 </ul>
+                <div className="mtop5p">If we want <b>maximum revenue + safety:</b></div>
+                <ul>
+                    <li className="mtop5p"><b>Banner</b> - Always <i>ON</i></li>
+                    <li className="mtop5p"><b>Interstitial</b> - Max 10–15/day</li>
+                    <li className="mtop5p"><b>Rewarded</b> - Primary monetization method</li>
+                </ul>
             </Col>
         </Row>
         </ContainerFluid>
