@@ -259,7 +259,7 @@ export const AppRouting = ()=>{
           {/*  Backend Urls ::: END */}
 
             <Route exact path="rn-components/notification" element={<ReactNativePage activeId="reactNative"><RNNotification /></ReactNativePage>} />
-            <Route exact path="rn-components/admob" element={<ReactNativePage activeId="reactNative"><Admob /></ReactNativePage>} />
+            <Route exact path="rn-components/google-admob" element={<ReactNativePage activeId="reactNative"><Admob /></ReactNativePage>} />
             
             
        </Routes>    

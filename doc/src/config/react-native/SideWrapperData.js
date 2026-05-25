@@ -3,6 +3,6 @@ export const SideWrapperData = [
       url:"#", 
       title:"Components",
       children:[{ id:"rn-notification", url:"rn-components/notification", title:"Notification" },
-        { id:"rn-admob", url:"rn-components/admob", title:"Admob" }]
+        { id:"rn-admob", url:"rn-components/google-admob", title:"Google Admob" }]
     },
 ];
