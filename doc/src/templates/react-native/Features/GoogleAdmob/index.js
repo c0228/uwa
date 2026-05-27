@@ -2,7 +2,7 @@ import React from "react";
 import { ContainerFluid, Row, Col, Card, Badge, Highlight, Icon } from "e-ui-react";
 import { DocumentHeader } from "@DocUtils/DocHeaders.js";
 
-export const Admob = () =>{
+export const GoogleAdmob = () =>{
  const IconDisplay = ({ status }) => <Icon type="FontAwesome" name={status?'fa-check':'fa-times'} color={status?'green':'red'} 
     style={{ marginRight:'5px' }} />
  return (<div>

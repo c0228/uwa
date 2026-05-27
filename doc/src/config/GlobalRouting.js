@@ -133,8 +133,11 @@ import { TableBlogNfInfo } from '@DocCore/backend/DatabasesTablesDesign/table-bl
 /* Backend Imports ::: END */
 
 /* React Native ::: START */
+import { RNProjectSetup } from '@DocReactNativeBasics/ProjectSetup/index.js';
 import { RNNotification } from '@DocReactNativeComponents/Notification/index.js';
-import { Admob } from '@DocReactNativeComponents/Admob/index.js';
+import { RNAlarmClock } from '@DocReactNativeFeatures/AlarmClock/index.js';
+import { GoogleAdmob } from '@DocReactNativeFeatures/GoogleAdmob/index.js';
+import { RNSocialLogins } from '@DocReactNativeFeatures/SocialLogins/index.js';
 /* React Native ::: END */
 
 export const AppRouting = ()=>{
@@ -258,9 +261,11 @@ export const AppRouting = ()=>{
             <Route exact path="DatabasesTablesDesign/TableBlogNfInfo" element={<BackendPage activeId="backend"><TableBlogNfInfo /></BackendPage>} />
           {/*  Backend Urls ::: END */}
 
+            <Route exact path="rn-basics/project-setup" element={<ReactNativePage activeId="reactNative"><RNProjectSetup /></ReactNativePage>} />
             <Route exact path="rn-components/notification" element={<ReactNativePage activeId="reactNative"><RNNotification /></ReactNativePage>} />
-            <Route exact path="rn-components/google-admob" element={<ReactNativePage activeId="reactNative"><Admob /></ReactNativePage>} />
-            
+            <Route exact path="rn-features/alarm-clock" element={<ReactNativePage activeId="reactNative"><RNAlarmClock /></ReactNativePage>} />
+            <Route exact path="rn-features/google-admob" element={<ReactNativePage activeId="reactNative"><GoogleAdmob /></ReactNativePage>} />
+            <Route exact path="rn-features/social-logins" element={<ReactNativePage activeId="reactNative"><RNSocialLogins /></ReactNativePage>} />
             
        </Routes>    
     </BrowserRouter>
