@@ -1,10 +1,19 @@
 import React from "react";
+import { Card } from "e-ui-react";
 
 const FollowersFollowings = () =>{
  return (<div>
     <div className="mtop5p">Starting with <b>0 followers</b> and <b>0 following</b> is normal. Instagram can still show your posts to 
         people through hashtags, Explore, Reels, and search. The challenge is giving Instagram enough signals that your 
         content is valuable.</div>
+    <div className="mtop15p">
+        <div><b>Instagram marketing is essentially about one goal:</b></div>
+        <div className="mtop5p">
+            <Card padding={15} backgroundColor="#f5f5f5">
+                <b>Create content that people watch, save, share, and search for.</b>
+            </Card>
+        </div>
+    </div>
     <div className="mtop15p"><h5><b>1. Focus on Reels, Not Just Posts</b></h5></div>
     <div className="padLeft15p">
         <div className="mtop5p">For a new account, Reels get much more reach than image posts.</div>
@@ -51,8 +60,8 @@ const FollowersFollowings = () =>{
         <div className="mtop5p">Your target audience is India.</div>
         <div className="mtop5p">Example:</div>
         <ul>
-            <li className="mtop5p"><u>Slide 1</u>: English</li>
-            <li className="mtop5p"><u>Slide 2</u>: Hindi</li>
+            <li className="mtop5p"><u><i>Slide 1</i></u>: English</li>
+            <li className="mtop5p"><u><i>Slide 2</i></u>: Hindi</li>
         </ul>
         <div className="mtop5p">This increases reach significantly.</div>
     </div>
