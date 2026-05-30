@@ -16,4 +16,11 @@ export const SideWrapperData = [
         { id:"rn-admob", url:"rn-features/google-admob", title:"Google Admob" },
         { id:"rn-social-logins", url:"rn-features/social-logins", title:"Soical Logins" },]
     },
+    { id:"rn-kotlin-works",
+      url:"#", 
+      title:"Kotlin Works",
+      children:[{ id:"rn-installation-setup", url:"rn-kotlin-works/installation-and-setup", title:"Installation & Setup" },
+          { id:"rn-standalone-android-library", url:"rn-kotlin-works/standalone-android-library", title:"Standalone Android Library" }
+      ]
+    },
 ];

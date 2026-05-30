@@ -4,6 +4,6 @@ import { DocumentHeader } from "@DocUtils/DocHeaders.js";
 
 export const RNProjectSetup = () =>{
  return (<div>
-    <DocumentHeader title="React Native Project Setup" componentAttributesTable={{}} />
+   <DocumentHeader title="React Native Project Setup" componentAttributesTable={{}} />
  </div>);
 };

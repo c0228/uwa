@@ -133,6 +133,9 @@ target: 'web',
         '@DocReactNativeBasics': Path.resolve(__dirname, 'src/templates/react-native/Basics'),
         '@DocReactNativeComponents': Path.resolve(__dirname, 'src/templates/react-native/Components'),
         '@DocReactNativeFeatures': Path.resolve(__dirname, 'src/templates/react-native/Features'),
+        '@DocReactNativeKotlinWorks': Path.resolve(__dirname, 'src/templates/react-native/KotlinWorks'),
+
+        '@DocMarketingSocialMedia': Path.resolve(__dirname, 'src/templates/marketing/social-media'),
         // Needed when library is linked via `npm link` to app
         /** This is implemented when the React Hooks are not working under the library */
         react: Path.resolve("./node_modules/react"),

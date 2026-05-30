@@ -28,9 +28,8 @@ export const NavMenuHeader = ( activeId ) =>{
         <div className="col-xs-12 col-xl-8 col-xxl-8 col-md-8">
         <Nav menulinks={[{ id:'react', url: url+'Component/AccordianList', label:'React' },
                         { id:'reactNative', url:url+'rn-components/notification', label:'React Native' },
-                        { id:'backend', url:url+'Basics/GetStarted', label:'Integrations' }
-						/*{ id:'dsalgo', url:'#', label:'Data Structure & Algorithms' },
-                                                        +   { id:'databases', url:'#', label:'Databases' }*/
+                        { id:'backend', url:url+'Basics/GetStarted', label:'Integrations' },
+                        { id:'marketing', url:url+'social-media/instagram', label:'Marketing' }
                 ]} activeId={activeId} />
         </div>
         <div className="col-xs-12 col-xl-4 col-xxl-4  col-md-4">

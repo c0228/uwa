@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const ReactPage  = React.lazy( ()=>import('@DocCore/react/Page.js') );
 const ReactNativePage  = React.lazy( ()=>import('@DocCore/react-native/Page.js') );
 const BackendPage  = React.lazy( ()=>import('@DocCore/backend/Page.js') );
+const MarketingPage = React.lazy( ()=>import('@DocCore/marketing/Page.js') );
 
 import Welcome from '@DocCore/welcome/index.js';
 import { ReactContextPage } from '@DocReactAdvancedTopics/ReactContext/index.js';
@@ -132,12 +133,19 @@ import { TableUserAccountsInfo } from '@DocCore/backend/DatabasesTablesDesign/ta
 import { TableBlogNfInfo } from '@DocCore/backend/DatabasesTablesDesign/table-blog_nf_info/index.js';
 /* Backend Imports ::: END */
 
+/* Marketing ::: START */
+import { SocialMediaInstagram } from '@DocMarketingSocialMedia/instagram/index.js';
+/* Marketing ::: END */
+
 /* React Native ::: START */
 import { RNProjectSetup } from '@DocReactNativeBasics/ProjectSetup/index.js';
 import { RNNotification } from '@DocReactNativeComponents/Notification/index.js';
 import { RNAlarmClock } from '@DocReactNativeFeatures/AlarmClock/index.js';
 import { GoogleAdmob } from '@DocReactNativeFeatures/GoogleAdmob/index.js';
 import { RNSocialLogins } from '@DocReactNativeFeatures/SocialLogins/index.js';
+
+import { InstallationAndSetup } from '@DocReactNativeKotlinWorks/InstallationAndSetup/index.js';
+import { StandaloneAndroidLibrary } from '@DocReactNativeKotlinWorks/StandaloneAndroidLibrary/index.js';
 /* React Native ::: END */
 
 export const AppRouting = ()=>{
@@ -266,6 +274,12 @@ export const AppRouting = ()=>{
             <Route exact path="rn-features/alarm-clock" element={<ReactNativePage activeId="reactNative"><RNAlarmClock /></ReactNativePage>} />
             <Route exact path="rn-features/google-admob" element={<ReactNativePage activeId="reactNative"><GoogleAdmob /></ReactNativePage>} />
             <Route exact path="rn-features/social-logins" element={<ReactNativePage activeId="reactNative"><RNSocialLogins /></ReactNativePage>} />
+
+            <Route exact path="rn-kotlin-works/installation-and-setup" element={<ReactNativePage activeId="reactNative"><InstallationAndSetup /></ReactNativePage>} />
+            <Route exact path="rn-kotlin-works/standalone-android-library" element={<ReactNativePage activeId="reactNative"><StandaloneAndroidLibrary /></ReactNativePage>} />
+            
+            <Route exact path="social-media/instagram" element={<MarketingPage activeId="marketing"><SocialMediaInstagram /></MarketingPage>} />
+            
             
        </Routes>    
     </BrowserRouter>
