@@ -109,6 +109,7 @@ import { WaterfallChartPage } from '@DocReactVisualization/WaterfallChart/index.
 
 /* Backend Imports ::: START */
 import { GetStartedPage } from '@DocCore/backend/Basics/GetStarted/index.js';
+import { LoggerFactoryPage } from '@DocCore/backend/Utility/LoggerFactory/index.js';
 import { SelfFileUploadPage } from '@DocCore/backend/CloudStorage/SelfFileUpload/index.js';
 import { SelfFileManagerPage } from '@DocCore/backend/CloudStorage/SelfFileManager/index.js';
 
@@ -251,6 +252,7 @@ export const AppRouting = ()=>{
 
           {/*  Backend Urls ::: START */}
             <Route exact path="Basics/GetStarted" element={<BackendPage activeId="backend"><GetStartedPage /></BackendPage>} />
+            <Route exact path="utility/logger-factory" element={<BackendPage activeId="backend"><LoggerFactoryPage /></BackendPage>} />            
             <Route exact path="CloudStorage/SelfFileUpload" element={<BackendPage activeId="backend"><SelfFileUploadPage /></BackendPage>} />
             <Route exact path="CloudStorage/SelfFileManager" element={<BackendPage activeId="backend"><SelfFileManagerPage /></BackendPage>} />
             <Route exact path="StaticConfig/Timezones" element={<BackendPage activeId="backend"><TimezonePage /></BackendPage>} />

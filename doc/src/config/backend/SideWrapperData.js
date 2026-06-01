@@ -4,6 +4,11 @@ export const SideWrapperData = [
       title:"Basics",
       children:[{ id:"getStarted", url:"Basics/GetStarted", title:"Get Started" }]
     },
+    { id:"utils",
+      url:"#", 
+      title:"Utility",
+      children:[{ id:"logger-factory", url:"utility/logger-factory", title:"Logger Factory" }]
+    },
     { id:"cloudStorage",
       url:"#", 
       title:"Cloud Storage",
