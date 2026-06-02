@@ -120,6 +120,12 @@ export const SideWrapperData = [
       title:"Themes",
       children:[{ id:"appColors", url:"Themes/AppThemes", title:"AppThemes" }]
     },
+    { id:"social-logins",
+      url:"#", 
+      title:"Social Logins",
+      children:[{ id:"login-with-google", url:"social-logins/login-with-google", title:"Login with Google" },
+          { id:"login-with-facebook", url:"social-logins/login-with-facebook", title:"Login with Facebook" }]
+    },
     { id:"utilities",
       url:"#", 
       title:"Utilities",

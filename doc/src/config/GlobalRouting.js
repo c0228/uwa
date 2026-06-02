@@ -88,6 +88,9 @@ import { AppThemesPage } from '@DocReactThemes/AppThemes/index.js';
 import { GridUtilityPage } from '@DocReactUtility/GridUtility/index.js';
 import { StylesUtilityPage } from '@DocReactUtility/StylesUtility/index.js';
 
+import { LoginGooglePage } from '@DocReactSocialLogins/Google/index.js';
+import { LoginFacebookPage } from '@DocReactSocialLogins/Facebook/index.js';
+
 import { AreaChartPage } from '@DocReactVisualization/AreaChart/index.js';
 import { BarChartPage } from '@DocReactVisualization/BarChart/index.js';
 import { BoxChartPage } from '@DocReactVisualization/BoxChart/index.js';
@@ -221,6 +224,11 @@ export const AppRouting = ()=>{
             <Route exact path="Media/VideoPlayer" element={<ReactPage activeId="react"><VideoPlayerPage /></ReactPage>} />
             <Route exact path="NodeJavascript/BlinkTextPrint" element={<ReactPage activeId="react"><BlinkTextPrintPage /></ReactPage>} />
           
+
+             /* Social Logins */
+            <Route exact path="social-logins/login-with-google" element={<ReactPage activeId="react"><LoginGooglePage /></ReactPage>} />
+            <Route exact path="social-logins/login-with-facebook" element={<ReactPage activeId="react"><LoginFacebookPage /></ReactPage>} />
+
             <Route exact path="Visualization/AreaChart" element={<ReactPage activeId="react"><AreaChartPage /></ReactPage>} />
             <Route exact path="Visualization/BarChart" element={<ReactPage activeId="react"><BarChartPage /></ReactPage>} />
             <Route exact path="Visualization/BoxChart" element={<ReactPage activeId="react"><BoxChartPage /></ReactPage>} />

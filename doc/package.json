@@ -38,6 +38,7 @@
     "webpack-obfuscator": "^3.5.1"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.13.5",
     "@reduxjs/toolkit": "^1.8.3",
     "@stackblitz/sdk": "^1.8.0",
     "@types/react": "18.0.15",
@@ -53,6 +54,7 @@
     "highlight.js": "^11.6.0",
     "html-to-react": "^1.5.0",
     "jquery": "^3.6.3",
+    "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-calendar": "^3.7.0",
     "react-dom": "^18.2.0",
