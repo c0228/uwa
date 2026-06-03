@@ -112,9 +112,9 @@ export const GoogleAdsensePage = () =>{
         </Row>
         <Row>
             <Col md={6}>
-                <div className="mtop15p"><h5><b>Tips to Increase Approval Chances</b></h5></div>
+                <div className="mtop15p"><h5><b>Tips to Increase Approval Chances</b></h5><hr/></div>
                 <ol>
-                    <li className="mtop5p"><b>Content Quality</b></li>
+                    <li className="mtop15p"><b>Content Quality</b></li>
                     <li className="mtop5p">
                         <div><b>Traffic Is Not Mandatory</b></div>
                         <Card padding={15}>
@@ -152,8 +152,8 @@ export const GoogleAdsensePage = () =>{
                 </ol>
             </Col>
             <Col md={6}>
-                <div className="mtop15p"><h5><b>Recommended Setup for Your SEO Websites</b></h5></div>
-                <div className="mtop5p">For a content-driven website:</div>
+                <div className="mtop15p"><h5><b>Recommended Setup for Your SEO Websites</b></h5><hr/></div>
+                <div className="mtop15p">For a content-driven website:</div>
                 <ul>
                     <li className="mtop5p">30–50 indexed articles</li>
                     <li className="mtop5p">About page</li>
@@ -167,9 +167,9 @@ export const GoogleAdsensePage = () =>{
                 </ul>
                 <div className="mtop5p">Then apply for AdSense.</div>
                 
-                <div className="mtop15p"><h5><b>Common Reasons for Rejection:</b></h5></div>
+                <div className="mtop15p"><h5><b>Common Reasons for Rejection:</b></h5><hr/></div>
                 <ul>
-                    <li className="mtop5p">Insufficient content</li>
+                    <li className="mtop15p">Insufficient content</li>
                     <li className="mtop5p">Under-construction website</li>
                     <li className="mtop5p">Navigation issues</li>
                     <li className="mtop5p">Policy pages missing</li>
