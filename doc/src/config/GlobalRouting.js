@@ -90,6 +90,7 @@ import { StylesUtilityPage } from '@DocReactUtility/StylesUtility/index.js';
 
 import { LoginGooglePage } from '@DocReactSocialLogins/Google/index.js';
 import { LoginFacebookPage } from '@DocReactSocialLogins/Facebook/index.js';
+import { GoogleAdsensePage } from '@DocReactSocialLogins/GoogleAdsense/index.js';
 
 import { AreaChartPage } from '@DocReactVisualization/AreaChart/index.js';
 import { BarChartPage } from '@DocReactVisualization/BarChart/index.js';
@@ -228,6 +229,9 @@ export const AppRouting = ()=>{
              /* Social Logins */
             <Route exact path="social-logins/login-with-google" element={<ReactPage activeId="react"><LoginGooglePage /></ReactPage>} />
             <Route exact path="social-logins/login-with-facebook" element={<ReactPage activeId="react"><LoginFacebookPage /></ReactPage>} />
+            <Route exact path="social-connect/google-adsense" element={<ReactPage activeId="react"><GoogleAdsensePage /></ReactPage>} />
+
+            
 
             <Route exact path="Visualization/AreaChart" element={<ReactPage activeId="react"><AreaChartPage /></ReactPage>} />
             <Route exact path="Visualization/BarChart" element={<ReactPage activeId="react"><BarChartPage /></ReactPage>} />

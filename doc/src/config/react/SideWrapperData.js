@@ -123,8 +123,10 @@ export const SideWrapperData = [
     { id:"social-logins",
       url:"#", 
       title:"Social Logins",
-      children:[{ id:"login-with-google", url:"social-logins/login-with-google", title:"Login with Google" },
-          { id:"login-with-facebook", url:"social-logins/login-with-facebook", title:"Login with Facebook" }]
+      children:[
+          { id:"login-with-facebook", url:"social-logins/login-with-facebook", title:"Login with Facebook" },
+          { id:"login-with-google", url:"social-logins/login-with-google", title:"Login with Google" },
+          { id:"google-adsense", url:"social-connect/google-adsense", title:"Google Adsense" }]
     },
     { id:"utilities",
       url:"#", 
