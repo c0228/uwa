@@ -4,19 +4,27 @@ import { ProgressBar } from 'e-ui-react';
 export const SampleNote1 = () =>{
  return (<>
   <div className="mtop15p">
-    <ProgressBar type="primary" progress="75" height="18" value="75%" />
-  </div>
-  <div className="mtop15p">
-    <ProgressBar type="success" progress="100" height="18" value="Completed" />
-  </div>
-  <div className="mtop15p">
-    <ProgressBar type="info" progress="60" height="15" />
-  </div>
-  <div className="mtop15p">
-    <ProgressBar type="warning" progress="40" height="12" />
-  </div>
-  <div className="mtop15p">
-    <ProgressBar type="danger" progress="55" height="10" />
+    <ProgressBar
+      height={20}
+      background="#000"
+      segments={[
+        {
+          progress: 40,
+          color: '#28a745',
+          value: 'Completed'
+        },
+        {
+          progress: 20,
+          color: '#ffc107',
+          value: 'Revision'
+        },
+        {
+          progress: 10,
+          color: '#17a2b8',
+          value: 'Mock Tests'
+        }
+      ]}
+    />
   </div>
  </>);
 };
