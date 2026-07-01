@@ -8,14 +8,16 @@ export const SampleNote1 = () =>{
         <Row>
             <Col xl={4}>
                 <Switch type="checkbox" id="numbers" name="numbers" label="Switch One" 
-                    value={[{ id:1, label:"One", value:"1"},
+                    value={["1","2"]} 
+                    options={[{ id:1, label:"One", value:"1"},
                             { id:2, label:"Two", value:"2" },
                             { id:3, label:"Three", value:"3" }]} 
                     disabled={false} />
             </Col>
             <Col xl={4}>
                 <Switch type="radio" id="numbers" name="numbers" label="Radio One" 
-                    value={[{ id:1, label:"One", value:"1"},
+                    value="1"
+                    options={[{ id:1, label:"One", value:"1"},
                             { id:2, label:"Two", value:"2" },
                             { id:3, label:"Three", value:"3" }]} 
                     disabled={false} />
@@ -32,7 +34,8 @@ export const SampleNote2 = () =>{
         <Row>
             <Col xl={4}>
                 <Switch type="checkbox" id="numbers1" name="numbers1" label="Switch One" 
-                    value={[{ id:1, label:"One", value:"1"},
+                    value={["1","2"]}
+                    options={[{ id:1, label:"One", value:"1"},
                             { id:2, label:"Two", value:"2" },
                             { id:3, label:"Three", value:"3" }]} 
                     disabled={false} 
@@ -53,7 +56,8 @@ export const SampleNote2 = () =>{
             </Col>
             <Col xl={4}>
                 <Switch type="radio" id="numbers2" name="numbers2" label="Radio One" 
-                    value={[{ id:1, label:"One", value:"1"},
+                    value="1"
+                    options={[{ id:1, label:"One", value:"1"},
                             { id:2, label:"Two", value:"2" },
                             { id:3, label:"Three", value:"3" }]} 
                     disabled={false} />
