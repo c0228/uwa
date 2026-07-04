@@ -1,0 +1,146 @@
+import React, { useState, useEffect, useCallback, useRef, createContext as createFormContext, useContext as useForm } from "react";
+import { Button } from "e-ui-react";
+
+const FormContext = createFormContext();
+
+// Static Variables
+export const FORM_SUBMITTED = "SUBMITTED";
+export const FORM_RESET = "RESET";
+export const FORM_INITIAL = "INITIAL";
+
+export const getForm = () => useForm(FormContext);
+
+export const Form = React.memo(({ name, btnSubmit, btnReset, children, onSubmit, beforeReset, onReset }) => {
+  const [form, updateForm] = useState(() => ({ [name]: { mode: FORM_INITIAL } }));
+  // Stores callback registered by child components
+  const afterSubmitted = useRef();
+  // Stores reset timeout
+  const resetTimeout = useRef();
+  /**
+    * Update Form Data
+    */
+  const setForm = useCallback((formName, data) => {
+    updateForm(prev => {
+      const next = { ...prev, [formName]: { ...(prev[formName] || {}), ...data } };
+      return next;
+    });
+  }, []);
+
+  /**
+    * Register callback after submit
+    */
+    const afterSubmit = useCallback((callback) => {
+      afterSubmitted.current = callback;
+    }, []);
+
+    /**
+     * Change Form Mode
+     */
+    const setFormMode = useCallback((status) => { setForm(name, { mode: status }); }, [name, setForm]);
+
+    /**
+     * Validate Form
+     */
+    const isErrorMessageEmpty = useCallback((formData = {}) => {
+      const keys = Object.keys(formData);
+      for (const key of keys) {
+        const errorMessage = formData[key]?.errorMessage;
+        if (errorMessage && errorMessage.length > 0) {
+          return false;
+        }
+      }
+      return true;
+    }, []);
+
+    /**
+     * Trigger Reset
+     */
+    const triggerReset = useCallback(() => {
+      if (typeof beforeReset === "function") {
+        beforeReset();
+      }
+      setFormMode(FORM_RESET);
+      console.log("Triggered Reset");
+      clearTimeout(resetTimeout.current);
+      resetTimeout.current = setTimeout(() => {
+        setFormMode(FORM_INITIAL);
+      }, 1000);
+    }, [beforeReset, setFormMode]);
+
+    /**
+     * Submit Handler
+     */
+    const onSubmission = () => {
+      setFormMode(FORM_SUBMITTED);
+      if (typeof onSubmit === "function") {
+        const isValid = isErrorMessageEmpty(form[name] || {});
+        onSubmit(form, isValid, triggerReset);
+      }
+      if (typeof afterSubmitted.current === "function") {
+        afterSubmitted.current();
+      }
+    };
+
+    /**
+     * Cleanup timeout
+     */
+    useEffect(() => {
+      return () => { clearTimeout(resetTimeout.current); };
+    }, []);
+
+    /**
+     * Debug
+     */
+    useEffect(() => {
+      console.log("Form Values [Received]: ", form[name]);
+    }, [form, name]);
+
+    return (
+      <FormContext.Provider
+        value={{
+          name,
+          form,
+          setForm,
+          afterSubmit,
+        }}
+      >
+        <form id={name} onSubmit={(e) => e.preventDefault()}>
+          {children}
+
+          <div align={btnSubmit?.align} style={{ paddingTop: "15px" }}>
+            <Button
+              type={btnSubmit?.btnType}
+              size={btnSubmit?.size}
+              style={btnSubmit?.style}
+              onClick={onSubmission}
+            >
+              {btnSubmit?.label ?? "Submit"}
+            </Button>
+
+            {btnReset && (
+              <Button
+                type={btnReset?.btnType}
+                size={btnReset?.size}
+                style={{
+                  marginLeft: "5px",
+                  ...btnReset?.style,
+                }}
+                onClick={() => {
+                  if (typeof onReset === "function") {
+                    onReset(triggerReset);
+                  } else {
+                    triggerReset();
+                  }
+                }}
+              >
+                {btnReset?.label ?? "Reset"}
+              </Button>
+            )}
+          </div>
+        </form>
+      </FormContext.Provider>
+    );
+  }
+);
+
+// Form.displayName = "Form";

@@ -1,0 +1,235 @@
+import React, { useEffect, useRef, useState } from "react";
+import {
+    FormSwitchValidate,
+    getForm,
+    FORM_SUBMITTED,
+    FORM_RESET
+} from "e-ui-react";
+import "./index.css";
+
+export const Switch = ({
+    id,
+    name,
+    type = "checkbox",
+    label,
+    layout = "vertical",
+    options = [],
+    value,
+    validation,
+    disabled,
+    onChange
+}) => {
+
+    const formContext = getForm();
+    const formName = formContext?.name;
+    const form = formContext?.form;
+    const initialValue = (type === "checkbox") ? [] : "";
+    const [switchValue, setSwitchValue] = useState(initialValue);
+    const FormMode = form?.[formName]?.mode;
+    const FormErrorMessage = form?.[formName]?.[name]?.errorMessage;
+
+    useEffect(()=>{
+      setSwitchValue(initialValue);
+    },[value]);
+
+    const ResetForm = ()=>{
+        if (FormMode === FORM_RESET) {
+            setIsTouched(false);
+            if (onChange) {
+                onChange(type === "radio" ? "" : []);
+            }
+        }
+    };
+    // Track whether user has interacted
+    const [isTouched, setIsTouched] = useState(false);    
+    const initialRender = useRef(true); // Prevent initial validation
+
+    // ----------------------------
+    // Reset Support
+    // ----------------------------
+    useEffect(() => {
+        ResetForm();
+    }, [FormMode]);
+
+    // ----------------------------
+    // Validation
+    // ----------------------------
+    useEffect(() => {
+
+        // Skip initial render
+        if (initialRender.current) {
+            initialRender.current = false;
+            return;
+        }
+
+        const validate = async () => {
+
+            const selected =
+                type === "radio"
+                    ? value
+                    : Array.isArray(value)
+                        ? value
+                        : [];
+
+            let result = {
+                value: selected
+            };
+
+            if (validation) {
+
+                result = await FormSwitchValidate(
+                    type,
+                    validation,
+                    selected
+                );
+
+            }
+
+            if (formName !== undefined && form?.[formName] !== undefined) {
+
+                formContext.setForm(formName, {
+                    [name]: result
+                });
+
+            }
+
+        };
+
+        validate();
+
+    }, [
+        value,
+        validation,
+        type,
+        formName,
+        name
+    ]);
+
+    // ----------------------------
+    // Change Handler
+    // ----------------------------
+    const handleClick = (event, optionValue) => {
+
+        setIsTouched(true);
+
+        let newValue;
+
+        if (type === "radio") {
+
+            newValue = optionValue;
+
+        } else {
+
+            if (event.target.checked) {
+
+                newValue = [...value, optionValue];
+
+            } else {
+
+                newValue = value.filter(v => v !== optionValue);
+
+            }
+
+        }
+
+        if (onChange) {
+            onChange(newValue);
+        }
+
+    };
+
+    // ----------------------------
+    // Validation Display
+    // ----------------------------
+    const hasValue =
+        type === "radio"
+            ? value !== "" && value !== undefined && value !== null
+            : Array.isArray(value) && value.length > 0;
+
+    const validateOnSubmit =
+        FormMode === FORM_SUBMITTED || isTouched || hasValue;
+
+    const isErrorMessageExist = FormErrorMessage?.length > 0;
+
+    return (
+        <>
+            {label && (
+                <label
+                    className={
+                        validateOnSubmit
+                            ? isErrorMessageExist
+                                ? "form-label form-label-validation-invalid"
+                                : "form-label form-label-validation-valid"
+                            : "form-label"
+                    }
+                >
+                    <b>{label} :</b>
+                </label>
+            )}
+
+            <div>
+
+                {options.map(option => {
+
+                    const checked =
+                        type === "radio"
+                            ? value === option.value
+                            : value.includes(option.value);
+
+                    return (
+
+                        <div
+                            key={option.id}
+                            className="form-check form-switch"
+                            style={{
+                                float:
+                                    layout === "horizontal"
+                                        ? "left"
+                                        : "none"
+                            }}
+                        >
+
+                            <input
+                                className="form-check-input"
+                                id={`${name}-${option.id}`}
+                                type={type}
+                                name={name}
+                                value={option.value}
+                                checked={checked}
+                                disabled={disabled || option.disabled}
+                                onChange={(e) =>
+                                    handleClick(e, option.value)
+                                }
+                            />
+
+                            <label
+                                className="form-check-label"
+                                htmlFor={`${name}-${option.id}`}
+                                style={{
+                                    cursor: "pointer",
+                                    paddingRight: "15px"
+                                }}
+                            >
+                                {option.label}
+                            </label>
+
+                        </div>
+
+                    );
+
+                })}
+
+            </div>
+
+            {validateOnSubmit && isErrorMessageExist && (
+                <div
+                    align="right"
+                    className="form-feedback-validation-invalid"
+                >
+                    {FormErrorMessage}
+                </div>
+            )}
+        </>
+    );
+
+};

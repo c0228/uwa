@@ -7,17 +7,25 @@ import {
 } from 'e-ui-react';
 import './index.css';
 
-export const Switch = ({ name, value, label, type, validation, layout, onChange }) => {
+export const Switch = ({ name, value, options, label, type, validation, layout, onChange }) => {
  const formContext = getForm();
  const formName = formContext?.name;
  const form = formContext?.form;
 
  const initialValue = () => {
-  return value.map((v) => ({
-   ...v,
-   checked: v?.checked === undefined ? false : v?.checked,
-   disabled: v?.checked === undefined ? false : v?.disabled,
-  }));
+   // if(type==='checkbox') { 
+      if(options===undefined){ return []; }
+      else {
+        return options?.map((v) => ({...v,
+          checked: v?.checked === undefined ? false : v?.checked,
+          disabled: v?.checked === undefined ? false : v?.disabled,
+        }));
+      } 
+ //   }
+ //   else{ 
+ //     if(value===undefined){ return ''; } 
+ //     else { return value; }
+ //   }
  };
 
  const [switchValue, setSwitchValue] = useState(initialValue());
@@ -44,7 +52,7 @@ export const Switch = ({ name, value, label, type, validation, layout, onChange 
 
  const handleValidation = useCallback(
   async (switchValue) => {
-   let result = { value: switchValue.filter((v) => v?.checked === true) };
+   let result = { value: switchValue?.filter((v) => v?.checked === true) };
    if (validation !== undefined) {
     result = await FormSwitchValidate(type, validation, result?.value);
    }
@@ -71,13 +79,13 @@ export const Switch = ({ name, value, label, type, validation, layout, onChange 
 
  const updateSwitchValues = (switchValue, e, id) => {
   if (type === "radio") {
-    return switchValue.map((item) => ({
+    return switchValue?.map((item) => ({
       ...item,
       checked: item.id === id
     }));
   } else {
     // checkbox / switch
-  return switchValue.map((item) =>
+  return switchValue?.map((item) =>
     item.id === id
       ? { ...item, checked: e.target.checked }
       : item
@@ -111,7 +119,7 @@ export const Switch = ({ name, value, label, type, validation, layout, onChange 
        className="form-check-input"
        type={type}
        name={name}
-       value={v?.value}
+      // value={v?.value}
        id={name + '-' + v?.id}
        checked={v?.checked}
        disabled={v?.disabled}
