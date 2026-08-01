@@ -38,6 +38,7 @@ export const SideWrapperData = [
             { id:"loading", url:"Component/Loading", title:"Loading" },
             { id:"menu", url:"Component/Menu", title:"Menu" },
             { id:"modal", url:"Component/Modal", title:"Modal" },
+            { id:"modalAlert", url:"Component/ModalAlert", title:"ModalAlert" },
             { id:"nav", url:"Component/Nav", title:"Nav" },
             { id:"pill", url:"Component/Pill", title:"Pill" },
             { id:"progressBar", url:"Component/ProgressBar", title:"ProgressBar" },

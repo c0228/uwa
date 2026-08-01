@@ -36,6 +36,7 @@ import { FloatingButtonPage } from '@DocReactComponents/FloatingButton/index.js'
 import { DropdownPage } from '@DocReactComponents/Dropdown/index.js';
 import { LoadingPage } from '@DocReactComponents/Loading/index.js';
 import { ModalPage } from '@DocReactComponents/Modal/index.js';
+import { ModalAlertPage } from '@DocReactComponents/ModalAlert/index.js';
 import { NavPage } from '@DocReactComponents/Nav/index.js';
 import { PillPage } from '@DocReactComponents/Pill/index.js';
 import { ProgressBarPage } from '@DocReactComponents/ProgressBar/index.js';
@@ -181,6 +182,7 @@ export const AppRouting = ()=>{
             <Route exact path="Component/FloatingButton" element={<ReactPage activeId="react"><FloatingButtonPage /></ReactPage>} />
             <Route exact path="Component/Loading" element={<ReactPage activeId="react"><LoadingPage /></ReactPage>} />
             <Route exact path="Component/Modal" element={<ReactPage activeId="react" ><ModalPage /></ReactPage> } />
+            <Route exact path="Component/ModalAlert" element={<ReactPage activeId="react" ><ModalAlertPage /></ReactPage> } />
             <Route exact path="Component/Nav" element={<ReactPage activeId="react" ><NavPage /></ReactPage> } />
             <Route exact path="Component/Pill" element={<ReactPage activeId="react" ><PillPage /></ReactPage> } />
             <Route exact path="Component/ProgressBar" element={<ReactPage activeId="react"><ProgressBarPage /></ReactPage>} />
