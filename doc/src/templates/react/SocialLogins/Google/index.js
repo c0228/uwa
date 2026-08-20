@@ -37,6 +37,20 @@ export const LoginGooglePage = () =>{
                             </Card>
                         </li>
                         <li className="mtop5p">
+                            To create an <code><b>OAuth client ID</b></code>, you must first <code><b>configure your consent screen</b></code>.
+                            <Card padding={15}>
+                                <div>You see a Message:</div>
+                                <div>Google Auth Platform not configured yet</div>
+                                <div>Get started to configure your application's identity and manage credentials for 
+                                calling Google APIs and Sign in with Google.</div>
+                                <div>Project Information should be Configured -</div>
+                                <div><b>App Information -</b> App Name and Email Address</div>
+                                <div><b>Audience -</b> Internal (Only available to users within your organization) and 
+                                External (Available to any test user with a Google Account)</div>
+                                 <div><b>Contact Information -</b> Email Address</div>
+                            </Card>
+                        </li>
+                        <li className="mtop5p">
                             <div>Choose: <code><b>Web Application</b></code></div>
                         </li>
                         <li className="mtop5p">

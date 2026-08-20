@@ -41,7 +41,7 @@ export const LoginGoogleExample = () => {
             <Col md={4}>
                 {/* Details from Google received to App ::: START */}
                 {Object.keys(userDetails)?.length>0 && (<div>
-                    <div><img src={userDetails?.profilePic} style={{ width:'100px', height:'100px', borderRadius:'50%' }} /></div>
+                    <div><img src={userDetails?.profilePic}  referrerPolicy="no-referrer" style={{ width:'100px', height:'100px', borderRadius:'50%' }} /></div>
                     <div className="mtop5p"><b>Surname:</b> {userDetails?.surName}</div>
                     <div className="mtop5p"><b>Name:</b> {userDetails?.name}</div> 
                     <div className="mtop5p"><b>Email Address:</b> {userDetails?.email} 

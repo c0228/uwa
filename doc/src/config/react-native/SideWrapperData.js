@@ -7,7 +7,8 @@ export const SideWrapperData = [
     { id:"rn-components",
       url:"#", 
       title:"Components",
-      children:[{ id:"rn-notification", url:"rn-components/notification", title:"Notification" }]
+      children:[{ id:"rn-notification", url:"rn-components/notification", title:"Notification" },
+          { id:"rn-sound-manager", url:"rn-components/sound-manager", title:"SoundManager" }]
     },
     { id:"rn-features",
       url:"#", 
