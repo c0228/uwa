@@ -9,3 +9,4 @@
  color: #3b4151;
 }
 .accordian-expand-collapse-section { margin-right:5px;font-size:12px;margin-bottom:3px;cursor:pointer; }
+.accordian-expand-collapse-section-label:hover { text-decoration: underline; }
