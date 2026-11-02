@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Card } from "e-ui-react";
 
-const Section01 = () =>{
+const Introduction = () =>{
  return ( <Row>
            <Col md={6}>
              <div><h4><b>1. Introduction</b></h4></div>
@@ -45,4 +45,4 @@ const Section01 = () =>{
          </Row>);
 };
 
-export default Section01;
+export default Introduction;
