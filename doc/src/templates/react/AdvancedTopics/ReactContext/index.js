@@ -16,9 +16,15 @@ console.log(SampleCodeJS.toString());
   </Card>
   <div className="mtop10p mbot10p"><b>Implementing React Context on Root Component:</b></div>
   <Card padding={15} backgroundColor={Colors.grey}>
-  <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0T53']}  />
+  <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0T59']}  />
   <div className="mtop10p mbot10p"><b>Output:</b></div>
   <HelloWorld />
+  <div className="mtop10p mbot10p"><b>Append, Replace and Remove:</b></div>
+  <ul>
+    <li className="mtop5p"><b>append:</b> Appending data to an existing data for an attribute</li>
+    <li className="mtop5p"><b>replace:</b> Replacing data to an existing data for an attribute</li>
+    <li className="mtop5p"><b>remove:</b> Removing the existing attribute itself</li>
+  </ul>
   </Card>
   </>);
  };

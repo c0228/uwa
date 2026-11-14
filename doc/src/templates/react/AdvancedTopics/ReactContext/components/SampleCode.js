@@ -23,6 +23,12 @@ export const HelloWorld = () =>{
           </div>
           <div>
             <b>Name:</b> {appContext.contextData.basicDetails.name} 
+            <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.name", "N. Anup Chakravarthi", "append" )}>
+              <b>Append Name</b>
+            </a>
+          </div>
+           <div>
+            <b>Name:</b> {appContext.contextData.basicDetails.name} 
             <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.name", "N. Anup Chakravarthi" )}>
               <b>Replace Name</b>
             </a>
