@@ -12,6 +12,7 @@ import { ReactContextPage } from '@DocReactAdvancedTopics/ReactContext/index.js'
 import { RxJSPage } from '@DocReactAdvancedTopics/Rxjs/index.js';
 
 import { HighlightPage } from '@DocReactCodeEditorsViewers/Highlight/index.js';
+import { PlaygroundPage } from '@DocReactCodeEditorsViewers/Playground/index.js';
 import { StackblitzPage } from '@DocReactCodeEditorsViewers/Stackblitz/index.js';
 import { RichTextEditorPage } from '@DocReactCodeEditorsViewers/RichTextEditor/index.js';
 
@@ -257,6 +258,7 @@ export const AppRouting = ()=>{
             <Route exact path="Utilities/GridUtility" element={<ReactPage activeId="react"><GridUtilityPage /></ReactPage>} />
             <Route exact path="Utilities/StylesUtility" element={<ReactPage activeId="react"><StylesUtilityPage /></ReactPage>} />
             <Route exact path="CodeEditorsViewers/Highlight" element={<ReactPage activeId="react"><HighlightPage /></ReactPage>} />
+            <Route exact path="CodeEditorsViewers/Playground" element={<ReactPage activeId="react"><PlaygroundPage /></ReactPage>} />
             <Route exact path="CodeEditorsViewers/Stackblitz" element={<ReactPage activeId="react"><StackblitzPage /></ReactPage>} />
             <Route exact path="CodeEditorsViewers/RichTextEditor" element={<ReactPage activeId="react"><RichTextEditorPage /></ReactPage>} />
             <Route exact path="AdvancedTopics/ReactContext" element={<ReactPage activeId="react"><ReactContextPage /></ReactPage>} />
