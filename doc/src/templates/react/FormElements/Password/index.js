@@ -9,11 +9,11 @@ const PasswordNotes = () => {
 
     const Note1 = () => {
       return (<>
-        <div className="mtop10p mbot10p"><b>Password:</b></div>
+        <div className="mtop10p mbot10p"><b>Password (Only Required Validation):</b></div>
         <Card padding={15} backgroundColor={Colors.grey}>
           <div className="mbot10p"><b>Sample Code:</b></div>
           <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
-          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['6T20']}  />
+          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['7T13']}  />
           <div className="mtop10p mbot10p"><b>Output:</b></div>
           <Card padding={15} backgroundColor={Colors.light}><SampleNote1 /></Card>
         </Card>
@@ -22,18 +22,32 @@ const PasswordNotes = () => {
   
     const Note2 = () => {
       return (<>
-        <div className="mtop10p mbot10p"><b>Password and Confirm Password with Form:</b></div>
+        {/*<div className="mtop10p mbot10p"><b>Password and Confirm Password with Form:</b></div>*/}
+        <div className="mtop10p mbot10p"><b>Password (Required + Password strength validation):</b></div>
         <Card padding={15} backgroundColor={Colors.grey}>
           <div className="mbot10p"><b>Sample Code:</b></div>
-          <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1','2']}  />
-          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['26T57']}  />
+          <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
+          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['19T37']}  />
           <div className="mtop10p mbot10p"><b>Output:</b></div>
           <Card padding={15} backgroundColor={Colors.light}><SampleNote2 /></Card>
         </Card>
       </>);
     };
+
+    const Note3 = () => {
+      return (<>
+        <div className="mtop10p mbot10p"><b>Password and Confirm Password with Form:</b></div>
+        <Card padding={15} backgroundColor={Colors.grey}>
+          <div className="mbot10p"><b>Sample Code:</b></div>
+          <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
+          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['43T82']}  />
+          <div className="mtop10p mbot10p"><b>Output:</b></div>
+          <Card padding={15} backgroundColor={Colors.light}><SampleNote3 /></Card>
+        </Card>
+      </>);
+    };
   
-    return (<Order data={[<Note1 />, <Note2 />]} />);
+    return (<Order data={[<Note1 />, <Note2 />, <Note3 />]} />);
   };
 
 export const PasswordPage = () => {
