@@ -11,13 +11,18 @@ export const SampleNote1 = () =>{
 export const SampleNote2 = () =>{  
  return (<>
   <Form name="testForm">
-    <Range name="formRanger" label="Select a Range" value={50} minValue={10} maxValue={1000} 
-        validation={{
-            required:{
-                value: true,
-                errorMessage:"This is a Mandatory Field"
-            }
-        }}/>
+    <Range name="age" label="Age" start={0} end={100}
+      validation={{
+        required: {
+          value: true,
+          errorMessage: "Age is required"
+        },
+        range: {
+          minValue: 18,
+          maxValue: 60,
+          errorMessage: "Age must be between 18 and 60"
+        }
+      }} />
   </Form>
  </>);
 };
