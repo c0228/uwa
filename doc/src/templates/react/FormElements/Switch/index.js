@@ -13,7 +13,7 @@ const SwitchNotes = () => {
         <Card padding={15} backgroundColor={Colors.grey}>
           <div className="mbot10p"><b>Sample Code:</b></div>
           <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
-          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['6T25']}  />
+          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['6T37']}  />
           <div className="mtop10p mbot10p"><b>Output:</b></div>
           <Card padding={15} backgroundColor={Colors.light}><SampleNote1 /></Card>
         </Card>
@@ -26,7 +26,7 @@ const SwitchNotes = () => {
         <Card padding={15} backgroundColor={Colors.grey}>
           <div className="mbot10p"><b>Sample Code:</b></div>
           <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['1']}  />
-          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['31T66']}  />
+          <Highlight content={SampleCodeJS.toString()} lang="html" lines={['43T85']}  />
           <div className="mtop10p mbot10p"><b>Output:</b></div>
           <Card padding={15} backgroundColor={Colors.light}><SampleNote2 /></Card>
         </Card>
