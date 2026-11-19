@@ -10,7 +10,7 @@ export const updateVariables = (prev, updates, value, mode = 'replace') => {
   const updateList = Array.isArray(updates)?updates:[{ path: updates, value, mode }];
 
   updateList.forEach(({ path, value, mode = 'replace' }) => {
-    const keys = path.split('.');
+    const keys = path?.split('.');
     let current = updated;
     // Navigate to the target object
     keys.slice(0, -1).forEach(key => { current = current[key]; });
