@@ -5,10 +5,7 @@
 
 .bs-playground {
     width: 100%;
-    border: 1px solid #dedede;
-    border-radius: 8px;
     overflow: hidden;
-    margin: 15px 0;
     background: #282a36;
     box-sizing: border-box;
     font-family: Arial, sans-serif;

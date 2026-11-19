@@ -24,16 +24,17 @@ const ChooseTheme = () =>{
 };
   
 export const NavMenuHeader = ( activeId ) =>{
- return (<div className="row">
-        <div className="col-xs-12 col-xl-8 col-xxl-8 col-md-8">
+ return (<>
+        <div>
         <Nav menulinks={[{ id:'react', url: url+'Component/AccordianList', label:'React' },
                         { id:'reactNative', url:url+'rn-components/notification', label:'React Native' },
                         { id:'backend', url:url+'Basics/GetStarted', label:'Integrations' },
-                        { id:'marketing', url:url+'social-media/instagram', label:'Marketing' }
-                ]} activeId={activeId} />
+                        { id:'marketing', url:url+'social-media/instagram', label:'Marketing' }]} 
+           activeId={activeId} />
         </div>
-        <div className="col-xs-12 col-xl-4 col-xxl-4  col-md-4">
+        <div className="d-flex ms-auto">
+                <div style={{ margin:'6px 15px'}}><a href="Playground" target="_blank">Open Playground</a></div>
                 <ChooseTheme />
         </div>
-</div>);
+</>);
 };

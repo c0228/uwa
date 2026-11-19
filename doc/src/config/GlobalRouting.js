@@ -8,6 +8,9 @@ const BackendPage  = React.lazy( ()=>import('@DocCore/backend/Page.js') );
 const MarketingPage = React.lazy( ()=>import('@DocCore/marketing/Page.js') );
 
 import Welcome from '@DocCore/welcome/index.js';
+
+import CodePlayground from '@DocPlayground/index.js';
+
 import { ReactContextPage } from '@DocReactAdvancedTopics/ReactContext/index.js';
 import { RxJSPage } from '@DocReactAdvancedTopics/Rxjs/index.js';
 
@@ -163,6 +166,8 @@ export const AppRouting = ()=>{
        <Routes>
        
             <Route exact path="/" element={<Welcome />} />
+            <Route exact path="/Playground" element={<CodePlayground />} />
+            
           {/*  React Urls ::: START */}
             <Route exact path="Component/AccordianList" element={<ReactPage activeId="react"><AccordianPage /></ReactPage>} />
             <Route exact path="Component/AccordianListItems" element={<ReactPage activeId="react"><AccordianListItemsPage  /></ReactPage>} />
