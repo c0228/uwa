@@ -16,7 +16,7 @@ console.log(SampleCodeJS.toString());
   </Card>
   <div className="mtop10p mbot10p"><b>Implementing React Context on Root Component:</b></div>
   <Card padding={15} backgroundColor={Colors.grey}>
-  <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0T59']}  />
+  <Highlight content={SampleCodeJS.toString()} lang="javascript" lines={['0T47']}  />
   <div className="mtop10p mbot10p"><b>Output:</b></div>
   <HelloWorld />
   <div className="mtop10p mbot10p"><b>Append, Replace and Remove:</b></div>

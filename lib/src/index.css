@@ -242,6 +242,10 @@ html {
  margin-bottom: 25px;
 }
 
+.mLeft5p { margin-left:5px; }
+.mRight5p { margin-right:5px; }
+.mRight8p { margin-right:8px; }
+
 @media (max-width: 1200px) {
  .btn {
   border-radius: 6px;

@@ -17,40 +17,28 @@ export const HelloWorld = () =>{
     const SubComponent = () => {
         const appContext = getContext();
         return (<>
-          <div id="AppHandBookContextData">
-            <b>Current Id:</b> {appContext.contextData.id} 
-            <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("id", "103" )}><b>Replace Id</b></a>
-          </div>
-          <div>
-            <b>Name:</b> {appContext.contextData.basicDetails.name} 
-            <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.name", "N. Anup Chakravarthi", "append" )}>
-              <b>Append Name</b>
-            </a>
-          </div>
-           <div>
-            <b>Name:</b> {appContext.contextData.basicDetails.name} 
-            <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.name", "N. Anup Chakravarthi" )}>
-              <b>Replace Name</b>
-            </a>
-          </div>
-          <div>
-            <b>Cities:</b> {JSON.stringify(appContext.contextData.basicDetails.cities)} 
-            <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.cities", ["London", "Wales" ])}>
-              <b>Replace Cities</b>
-            </a>
-          </div>
-          <div>
-            <b>Countries:</b> {JSON.stringify(appContext.contextData.basicDetails.countries)} 
-            <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.countries", ["UK", "Australia" ], "append")}>
-              <b>Append Countries</b>
-            </a>
-          </div>
-          <div>
-            <b>Countries:</b> {JSON.stringify(appContext.contextData.basicDetails.pincode)} 
-            <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.pincode", 0, "remove")}>
-              <b>Remove Countries Attribute</b>
-            </a>
-          </div>
+        <div id="AppHandBookContextData">
+          <b>Current Data:</b> {JSON.stringify(appContext.contextData, null, 2)}
+        </div>
+        <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData([{ path:"id", value:"103", mode: "replace" }])}>
+          <b>Replace Id with 103</b>
+        </a>
+        <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData([{ path:"id", value:"103", mode: "append" }])}>
+          <b>Append Id with 103</b>
+        </a>
+        <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.name", "N. Anup Chakravarthi", "replace" )}>
+          <b>Replace "N. Anup Chakravarthi" to existing Name</b></a>
+        <div></div>
+        <a href="#AppHandBookContextData" className="btn-context" onClick={() => appContext.setContextData("basicDetails.name", "N. Anup Chakravarthi", "append" )}>
+          <b>Append "N. Anup Chakravarthi" to existing Name</b></a>
+        <a href="#AppHandBookContextData" className="btn-context" 
+          onClick={() =>{
+            appContext.setContextData([{ path:"basicDetails.cities", value:["Mumbai", "Delhi"], mode: "replace" },
+              { path:"basicDetails.countries", value:["UK", "Australia"], mode: "append" },
+             { path:"basicDetails.pincode", value:0, mode: "remove" }])
+          }}>
+              <b>Append and Replace Multiple Items</b>
+        </a>
         </>);
     };
       
